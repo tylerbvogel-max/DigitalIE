@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://digitalie.dev/schemas/hypothesis.schema.json",
+  "title": "Causal Hypothesis",
+  "type": "object",
+  "required": ["id", "case_id", "claim", "status", "evidence_ids"],
+  "properties": {
+    "id": {"type": "string"}, "case_id": {"type": "string"}, "claim": {"type": "string"},
+    "status": {"enum": ["proposed", "testing", "supported", "verified", "rejected"]},
+    "evidence_ids": {"type": "array", "items": {"type": "string"}},
+    "validation_test_id": {"type": "string"}, "approved_by": {"type": "string"}
+  },
+  "allOf": [{"if": {"properties": {"status": {"const": "verified"}}}, "then": {"required": ["validation_test_id", "approved_by"], "properties": {"evidence_ids": {"minItems": 1}}}}],
+  "additionalProperties": false
+}

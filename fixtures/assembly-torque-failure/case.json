@@ -1,0 +1,10 @@
+{
+  "id": "DIE-2026-0001",
+  "title": "Intermittent final-assembly torque failures at station 40",
+  "status": "control",
+  "process": "Final assembly / station 40",
+  "problem_statement": "Torque-completion defects rose from 0.4% to 4.8% on shift B between 2026-08-11 and 2026-08-14.",
+  "ctqs": ["torque completion", "first-pass yield"],
+  "created_at": "2026-08-14T14:30:00Z",
+  "owner": "Assembly quality engineer"
+}

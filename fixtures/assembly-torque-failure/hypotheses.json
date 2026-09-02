@@ -1,0 +1,4 @@
+[
+  {"id":"H-001","case_id":"DIE-2026-0001","claim":"Low tool battery voltage caused false torque-completion results.","status":"verified","evidence_ids":["E-001","E-002","E-003"],"validation_test_id":"T-001","approved_by":"Assembly quality engineer"},
+  {"id":"H-002","case_id":"DIE-2026-0001","claim":"New operator training caused the defect increase.","status":"rejected","evidence_ids":["E-001"],"validation_test_id":"T-002"}
+]

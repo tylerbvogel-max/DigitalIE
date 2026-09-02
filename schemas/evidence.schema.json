@@ -1,0 +1,15 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://digitalie.dev/schemas/evidence.schema.json",
+  "title": "Evidence Item",
+  "type": "object",
+  "required": ["id", "case_id", "kind", "source_system", "source_reference", "retrieved_at", "content_hash"],
+  "properties": {
+    "id": {"type": "string"}, "case_id": {"type": "string"},
+    "kind": {"enum": ["mes_export", "qms_record", "cmms_record", "historian_extract", "gemba_note", "photo", "document", "manual_entry"]},
+    "source_system": {"type": "string"}, "source_reference": {"type": "string"},
+    "retrieved_at": {"type": "string", "format": "date-time"},
+    "content_hash": {"type": "string"}, "immutable": {"type": "boolean", "default": true}
+  },
+  "additionalProperties": false
+}

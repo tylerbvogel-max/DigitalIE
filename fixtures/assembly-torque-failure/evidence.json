@@ -1,0 +1,5 @@
+[
+  {"id":"E-001","case_id":"DIE-2026-0001","kind":"mes_export","source_system":"fixture-mes","source_reference":"torque-results.csv","retrieved_at":"2026-08-14T15:00:00Z","content_hash":"sha256:fixture-torque-results-v1","immutable":true},
+  {"id":"E-002","case_id":"DIE-2026-0001","kind":"gemba_note","source_system":"fixture-gemba","source_reference":"observation-2026-08-14","retrieved_at":"2026-08-14T15:25:00Z","content_hash":"sha256:fixture-gemba-v1","immutable":true},
+  {"id":"E-003","case_id":"DIE-2026-0001","kind":"document","source_system":"fixture-calibration","source_reference":"tool-40-check-2026-08-15","retrieved_at":"2026-08-15T13:00:00Z","content_hash":"sha256:fixture-calibration-v1","immutable":true}
+]
