@@ -8,7 +8,7 @@ How does value and information actually flow from trigger to customer, and where
 
 For each step capture: trigger/input, work performed, output/customer, touch time, elapsed/queue time, WIP, first-pass yield/rework loop, handoff, information system, cadence, and owner. Walk the path instead of mapping solely from organizational charts.
 
-Calculate total lead time and total touch time from observed values. Flag estimates visibly. The difference is often where the operating system is hiding.
+Calculate total lead time and touch time from observed values; mark estimates. Investigate the gap for queues, approvals, handoffs, and rework.
 
 ## Diagnose before redesign
 

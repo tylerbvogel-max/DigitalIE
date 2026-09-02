@@ -1,6 +1,6 @@
 # Maintenance and Reliability field playbooks
 
-Reliability protects the capability that production depends on. It treats downtime as evidence about assets, work systems, spares, operating conditions, and planning—not just a request for faster repair.
+Reliability protects production capability through asset risk, maintenance work, spares, operating conditions, and failure evidence.
 
 | Need | Playbook |
 |---|---|

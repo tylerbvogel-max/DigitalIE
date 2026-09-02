@@ -1,6 +1,6 @@
 # Program Management field playbooks
 
-Program Management turns a complex commitment into visible scope, integrated work, decisions, resources, risks, and stakeholder alignment. It governs the system around delivery; it does not replace functional ownership.
+Program Management coordinates scope, work, decisions, resources, risks, and stakeholders. Functional owners retain their technical authority.
 
 | Need | Playbook |
 |---|---|

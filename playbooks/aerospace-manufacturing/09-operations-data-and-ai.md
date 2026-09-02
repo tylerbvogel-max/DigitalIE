@@ -6,7 +6,7 @@ Can operational data or AI reduce time-to-understanding without degrading tracea
 
 ## Start with a decision
 
-Specify the user, decision, action window, required source evidence, error cost, and human authority. A dashboard that cannot change a decision—or whose definitions no one trusts—is reporting exhaust, not an operational tool.
+Specify the user, decision, action window, source evidence, error cost, and human authority. Retire dashboards that do not support a decision or lack trusted definitions.
 
 ## Data contract
 

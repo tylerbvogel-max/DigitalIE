@@ -1,8 +1,8 @@
 # Production Management field playbooks
 
-Production Management converts a plan into safe, conforming, predictable work every day. It owns the execution system: what is built, in what sequence, with which people/material/equipment, against which constraints, and how abnormality is escalated.
+Production Management turns a plan into safe, conforming work: sequence, readiness, constraints, handoffs, and escalation.
 
-| Situation | Start here | Do not mistake it for |
+| Situation | Start here | Common misuse |
 |---|---|---|
 | Need a repeatable daily operating cadence | [Daily management](01-daily-management.md) | A status meeting |
 | Plan and floor reality have diverged | [Schedule execution](02-schedule-execution.md) | A schedule update alone |
@@ -13,4 +13,4 @@ Production Management converts a plan into safe, conforming, predictable work ev
 | Teams cannot see/control the work | [Visual performance management](07-visual-performance-management.md) | Decorative dashboards |
 | A miss needs recovery | [Recovery and escalation](08-recovery-and-escalation.md) | Heroic expediting |
 
-Production owns execution, but never overrides quality, safety, configuration, engineering, or authorized disposition requirements. Its best systems make those conditions visible early enough to plan around them.
+Production may not override safety, quality, configuration, engineering, or disposition authority.

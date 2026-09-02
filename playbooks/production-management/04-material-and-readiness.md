@@ -14,4 +14,4 @@ Classify shortages by effect on the constraint/customer, availability date confi
 
 ## Exit
 
-The team knows what can run, what cannot, why, who owns recovery, and when to escalate. Readiness claims are evidence-based rather than optimism-based.
+The team records what can run, what cannot, why, recovery owner, and escalation time from source evidence.

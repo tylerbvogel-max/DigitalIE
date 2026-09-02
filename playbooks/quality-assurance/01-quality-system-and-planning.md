@@ -15,7 +15,7 @@ For a specific product/process, build a quality plan that joins CTQs, requiremen
 - Can a floor operator find the current requirement at the decision point?
 - Is each handoff clear on its acceptance criteria and evidence?
 - Are exceptions visible, authorized, time-bound, and reviewed?
-- Does management review trends, systemic risk, and action effectiveness—not merely open-item counts?
+- Does management review trends, systemic risk, action effectiveness, and open-item counts?
 
 ## Exit
 

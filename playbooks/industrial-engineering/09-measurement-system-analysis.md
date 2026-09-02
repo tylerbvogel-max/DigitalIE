@@ -22,7 +22,7 @@ State what the measure will decide: accept/reject a part, detect process shift, 
 
 ## Interpret operationally
 
-Assess the measurement variation relative to tolerance, expected process variation, and the decision risk—not an isolated percentage rule. Look at appraiser-by-part interaction, bias, resolution, and the practical cost of bad decisions. If the system cannot distinguish the change you want to study, improve the measure or change the experiment.
+Compare measurement variation with tolerance, expected process variation, and decision risk. Review appraiser-by-part interaction, bias, resolution, and cost of bad decisions. If the system cannot distinguish the change, improve the measure or redesign the experiment.
 
 ## Exit
 

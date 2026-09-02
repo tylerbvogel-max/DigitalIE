@@ -8,7 +8,7 @@ What is the safest, highest-quality, repeatable known method for doing this work
 
 Observe capable operators performing the work; include safety, quality, ergonomic, sequence, timing, material, tool/parameter, inspection, and abnormal-condition steps. Capture the why behind critical steps. Where product/configuration changes the method, make the decision point explicit.
 
-Good standard work is visual, point-of-use, version-controlled, readily accessible, and specific enough to make abnormality visible. It specifies the critical few—not an unreadable novel.
+Standard work must be visual, point-of-use, version-controlled, accessible, and specific enough to expose abnormality. Include critical steps and decision points.
 
 ## Validate
 

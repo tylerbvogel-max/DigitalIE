@@ -1,8 +1,8 @@
 # Quality assurance field playbooks
 
-Quality Assurance is the operating system that makes a claim of conformance trustworthy. Quality Control detects and contains product/process conditions; Quality Assurance designs, governs, audits, and improves the system that prevents their recurrence.
+Quality Control detects and contains conditions. Quality Assurance governs the requirements, evidence, audits, and corrective-action system used to prevent recurrence.
 
-| Situation | Start here | Do not confuse it with |
+| Situation | Start here | Common misuse |
 |---|---|---|
 | Designing or assessing the quality system | [Quality system and planning](01-quality-system-and-planning.md) | A document hierarchy alone |
 | Determining whether output can be accepted | [Acceptance and evidence](02-acceptance-and-evidence.md) | Inspection volume |
@@ -13,4 +13,4 @@ Quality Assurance is the operating system that makes a claim of conformance trus
 | External providers affect conformance | [Supplier quality](07-supplier-quality.md) | Procurement scorekeeping |
 | Leadership needs a quality-health view | [Quality metrics and management review](08-quality-metrics-and-management-review.md) | A dashboard of counts |
 
-Use the Industrial Engineering playbooks for root-cause methods, MSA, SPC, FMEA, and control plans; QA sets the governance and evidence conditions under which those methods are trustworthy.
+Use Industrial Engineering for root-cause methods, MSA, SPC, FMEA, and control plans. QA governs their evidence and closure.

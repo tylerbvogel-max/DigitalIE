@@ -1,8 +1,8 @@
 # Industrial Engineering field playbooks
 
-Choose the method from the shape of the problem, not from the tool you most enjoy using.
+Choose the method from the problem shape.
 
-| Situation | Start here | Do not mistake it for |
+| Situation | Start here | Common misuse |
 |---|---|---|
 | Immediate safety/quality/delivery abnormality | [Triage and framing](00-triage-and-framing.md) | Full RCA before containment |
 | Need to understand actual work | [Gemba](01-gemba.md) | A conference-room process map |
@@ -20,4 +20,4 @@ Choose the method from the shape of the problem, not from the tool you most enjo
 | Missed output / overload / uneven flow | [Capacity and line balancing](13-capacity-and-line-balancing.md) | Headcount arithmetic alone |
 | A technically sound change is not sticking | [Change management](14-change-management.md) | Announcement or compliance theater |
 
-Every playbook finishes with an evidence-backed next action, owner, and measure of effect—not merely a nice artifact.
+Each playbook ends with a next action, owner, and measure.

@@ -6,7 +6,7 @@ Can the team recognize abnormality early, make the right decision at the right l
 
 ## Cadence
 
-Use a tiered rhythm suited to the operation: point-of-work huddle; area/cell escalation; cross-functional daily review; and leadership review for systemic/resource decisions. Each tier receives unresolved issues, constraints, and decisions—not a repeated narration of yesterday.
+Use point-of-work huddles, area/cell escalation, cross-functional review, and leadership review for systemic or resource decisions. Each tier receives unresolved issues, constraints, and decisions from the tier below.
 
 ## Standard agenda
 

@@ -1,6 +1,6 @@
 # Aerospace manufacturing field playbooks
 
-These playbooks identify the questions, evidence, ownership boundaries, and escalation paths that make aerospace operations distinct. They are reference models—not substitutes for an employer’s approved procedures, customer requirements, export-control rules, engineering authority, quality authority, or regulatory obligations.
+Use these playbooks to identify evidence, decision owners, and escalation paths. Employer procedures, customer requirements, export controls, and authorized engineering/quality decisions govern the work.
 
 ## The governing sequence
 

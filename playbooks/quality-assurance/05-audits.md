@@ -1,4 +1,4 @@
-# Audits: test the operating system
+# Audits
 
 ## Question answered
 
@@ -14,4 +14,4 @@ Ask people to show the work and records. Record objective evidence, requirement/
 
 ## Exit
 
-Findings have clear evidence, accountable owners, appropriate correction/CAPA routing, due dates, and verified closure. Audit trends inform management review and risk planning.
+Each finding needs objective evidence, an owner, correction/CAPA routing, due date, and verified closure. Use audit trends in management review and risk planning.

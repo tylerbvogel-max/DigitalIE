@@ -6,7 +6,7 @@ What should be built now, what can actually be built, and what decision closes t
 
 ## Reconcile daily
 
-Compare demand/commitment, released work, configuration-effective plan, actual WIP status, material/tool/people/equipment readiness, expected yield, constraints, inspection/test holds, and downstream capacity. Track reason codes for misses at a useful mechanism level—not merely “late.”
+Compare demand/commitment, released work, configuration-effective plan, actual WIP status, material/tool/people/equipment readiness, expected yield, constraints, inspection/test holds, and downstream capacity. Use reason codes that identify the mechanism: shortage, qualification, hold, equipment, yield, or capacity.
 
 ## Recovery rule
 
@@ -14,4 +14,4 @@ Choose a recovery action only after confirming quality, configuration, material 
 
 ## Exit
 
-The near-term schedule is credible, risks are explicitly owned, and a miss is explained by a testable cause category with a response path.
+The near-term schedule states its readiness risks, owners, cause categories, and response path.

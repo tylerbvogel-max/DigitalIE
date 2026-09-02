@@ -1,6 +1,6 @@
 # Materials and Supply Chain field playbooks
 
-This family ensures the right item, quantity, condition, configuration, and evidence arrive at the point of use when needed—without optimizing inventory or expedites at the expense of conformance.
+This family governs item, quantity, condition, configuration, and evidence from demand through point of use. Inventory or expedites never supersede conformance.
 
 | Need | Playbook |
 |---|---|

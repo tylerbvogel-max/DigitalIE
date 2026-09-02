@@ -2,7 +2,7 @@
 
 ## Question answered
 
-Is the operation genuinely ready to build a conforming article repeatedly—not merely ready to start work?
+Can the operation build a conforming article repeatedly with the required people, material, tooling, instructions, and evidence?
 
 ## Readiness review
 

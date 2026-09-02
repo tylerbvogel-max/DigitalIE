@@ -1,6 +1,6 @@
 # Digital Operations and Data field playbooks
 
-Digital operations makes the operating system observable and easier to improve. It starts from an operational decision and source evidence—not a preferred dashboard, platform, or AI capability.
+Start with the operational decision and source record. Select dashboards, integrations, or AI only after defining the decision, owner, and error cost.
 
 | Need | Playbook |
 |---|---|

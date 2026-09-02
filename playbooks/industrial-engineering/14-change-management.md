@@ -2,7 +2,7 @@
 
 ## Question answered
 
-What must become true in the operating system for a technically sound change to be used reliably?
+What must change in work, information, training, controls, and incentives for the new method to hold?
 
 ## Map the adoption system
 

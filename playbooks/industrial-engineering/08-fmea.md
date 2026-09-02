@@ -19,7 +19,7 @@ For each process step, identify the intended function/requirement, failure mode,
 
 Score severity, occurrence, and detection only with team-defined, stable criteria. Severity belongs to the effect, not the likelihood. A high-severity item remains important even when rare. Use an action-priority rule or explicit risk matrix rather than pretending that identical RPN products represent identical risk.
 
-Escalate immediately where the consequence is safety, regulatory, customer-critical, or an uncontrolled escape path. An action must change prevention, detection, or consequence—not merely restate “be careful” or “retrain.”
+Escalate safety, regulatory, customer-critical, and uncontrolled-escape risks. Actions must change prevention, detection, or consequence; reminders and retraining alone are insufficient.
 
 ## Exit
 
