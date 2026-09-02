@@ -20,6 +20,7 @@ DigitalIE separates an observation, a hypothesis, a validated causal claim, a co
 - Industrial Engineering: triage, Gemba, 5 Why, Ishikawa, Pareto/stratification, SPC, value-stream mapping, and DMAIC/PDCA.
 - Aerospace manufacturing: quality/conformance, configuration/traceability, readiness, critical-process governance, production control, supplier quality, airworthiness interfaces, change control, and operations data/AI.
 - Quality assurance: quality-system design, acceptance evidence, nonconformance, CAPA/8D, audit, document/record control, supplier quality, and quality metrics.
+- Production management: daily management, schedule execution, constraint control, material/labor readiness, shift handoffs, visual performance, and recovery leadership.
 - Shared tools: problem framing, evidence standards, experiment design, and reference-versus-reality questioning.
 - Future domains: program management, quality assurance, and production management follow the same shape once this foundation is mature.
 
