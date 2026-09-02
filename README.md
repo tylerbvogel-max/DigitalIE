@@ -11,6 +11,10 @@ It keeps observation, hypothesis, validated cause, corrective action, and effect
 3. Record observed practice separately from the reference model in [the gap ledger template](templates/reference-vs-reality.md).
 4. Record each local deviation with its rationale, owner, and measured consequence.
 
+## Process and agent views
+
+The playbooks are the capability library. [Processes](processes/README.md) organize that library around work moving through the operation. [Agent cards](agents/README.md) define the evidence, allowed actions, specialist critics, and human decision gates for future agentic use.
+
 ## Current corpus
 
 - Industrial Engineering: triage, Gemba, 5 Why, Ishikawa, Pareto/stratification, SPC, value-stream mapping, and DMAIC/PDCA.
@@ -23,6 +27,9 @@ It keeps observation, hypothesis, validated cause, corrective action, and effect
 ## Repository map
 
 - `playbooks/` — the primary, human-usable operational corpus.
+- `processes/` — cross-functional work flows and handoff contracts.
+- `agents/` — process-agent boundaries and orchestration patterns.
+- `authority/` — human decision rights that agents cannot assume.
 - `learning/` — first-contact and discovery patterns.
 - `templates/` — reusable field guides and gap records.
 - `docs/` — supporting architecture, ontology, integration contracts, and decisions.

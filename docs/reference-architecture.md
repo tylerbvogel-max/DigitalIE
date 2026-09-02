@@ -4,6 +4,8 @@
 
 The durable object is an **improvement case**, not a chat transcript and not a generated A3. A case is a chain of traceable evidence and decisions. Human-readable reports are projections of that chain.
 
+The corpus has two orthogonal views: capability playbooks explain methods; process maps organize work from trigger to handoff. Process agents use capability profiles as specialist critics and stop at human decision gates.
+
 ```mermaid
 flowchart LR
   U[Operator / engineer / supervisor] --> H[Harness or plant-floor UI]
