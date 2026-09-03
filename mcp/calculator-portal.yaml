@@ -1,0 +1,45 @@
+id: portal.digitalie-calculator
+version: 0.1.0
+owner: local-corpus-owner
+purpose: deterministic-calculations-with-versioned-receipts
+transport: stdio
+data_classification: local-input-only; caller-enforces-employer-boundary
+capabilities:
+  resources: []
+  prompts: []
+  tools:
+    - family: descriptive
+      effect: calculate
+    - family: probability
+      effect: calculate
+    - family: inference
+      effect: calculate
+    - family: comparison
+      effect: calculate
+    - family: sequence
+      effect: calculate
+    - family: regression
+      effect: calculate
+  input_schema: generated-from-method-registry
+  output_schema: schemas/calculation-receipt.schema.json
+  required_scopes: []
+  idempotent: true
+  human_gate: false
+  side_effects: none
+  audit_events: caller-persists-requested-completed-failed
+  timeout_seconds: 30
+authorization:
+  identity_source: local-stdio-parent-process
+  least_privilege: true
+  token_passthrough: prohibited
+operations:
+  arbitrary_expression_evaluation: prohibited
+  database_access: prohibited
+  network_access: prohibited
+  plant_writes: prohibited
+  rate_limit: parent-process-controlled
+  retries: safe-because-idempotent
+  degraded_behavior: reject-with-tool-error
+  revoke_path: remove-server-from-harness-configuration
+  shutdown_path: terminate-child-process
+  incident_owner: local-corpus-owner

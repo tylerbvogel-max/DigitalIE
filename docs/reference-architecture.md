@@ -12,7 +12,9 @@ AI-native delivery uses the same model. [Its reference architecture](ai-native-a
 flowchart LR
   U[Operator / engineer / supervisor] --> H[Harness or plant-floor UI]
   H --> P[Industrial Engineer profile and procedural skills]
-  P --> M[DigitalIE MCP / domain service]
+  P --> C[Calculation MCP]
+  C --> K[Deterministic calculation kernel]
+  P --> M[DigitalIE case MCP / domain service]
   M --> D[(Canonical evidence store)]
   M --> A[Read-only source adapters]
   A --> S[MES / QMS / CMMS / historian / CSV]
@@ -34,6 +36,8 @@ flowchart LR
 
 The MVP runs as one application service and PostgreSQL. The MCP is a narrow facade over the domain service, usable from any compatible harness. Source adapters operate read-only and can later be independently deployed for network segmentation.
 
+The calculation kernel is separately usable as a Python library and through a local read-only MCP stdio adapter. It requires no database. Calculation receipts can later be attached to improvement cases by the case service; arithmetic availability does not depend on that future persistence layer.
+
 ## Fitness functions
 
 1. Every `verified` root cause links to one or more evidence IDs and an approval.
@@ -41,3 +45,4 @@ The MVP runs as one application service and PostgreSQL. The MCP is a narrow faca
 3. No plant write can execute without a named approver and audit event.
 4. Rendering never owns source-of-truth data.
 5. Core entities cannot contain vendor-specific field names.
+6. Every material agent-generated calculation uses a named, versioned method and preserves a calculation receipt.

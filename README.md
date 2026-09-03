@@ -47,4 +47,4 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - `profiles/` and `skills/` — concise harness-agnostic agent behavior cards.
 - `schemas/`, `mcp/`, `adapters/`, `fixtures/`, `evals/` — optional future automation foundation.
 
-The database, MCP, adapter, fixture, and evaluation directories are future-automation reference material. They are not required to use the corpus.
+The local [Calculation MCP](mcp/README.md) is implemented and requires no database. Case-management persistence, source adapters, and most evaluation material remain future automation; none is required to use the human-readable corpus.

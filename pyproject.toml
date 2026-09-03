@@ -4,5 +4,8 @@ version = "0.1.0"
 description = "Evidence-first industrial engineering reference architecture"
 requires-python = ">=3.11"
 
+[project.scripts]
+digitalie-calculator-mcp = "digital_ie.calculator_mcp:main"
+
 [tool.unittest]
 start-directory = "tests"

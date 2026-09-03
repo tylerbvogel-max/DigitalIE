@@ -2,6 +2,50 @@
 
 The MCP exposes domain verbs, never arbitrary SQL or unrestricted plant writes.
 
+## Implemented calculation portal
+
+The [calculator portal](calculator-portal.yaml) is implemented as a dependency-free local stdio server. Its method registry exposes typed descriptive, probability, inference, comparison, sequence, and regression calculations backed by the readable Python equations—not by model-generated expressions. It supports current stateless MCP discovery and legacy initialization for harness compatibility.
+
+From the repository root:
+
+```bash
+PYTHONPATH=src python3 -m digital_ie.calculator_mcp
+```
+
+Or install it into an isolated environment:
+
+```bash
+python3 -m venv .venv
+.venv/bin/pip install .
+.venv/bin/digitalie-calculator-mcp
+```
+
+For an installed package, configure the harness command as the absolute path to `.venv/bin/digitalie-calculator-mcp`. Each MCP tool is read-only and idempotent and returns a [calculation receipt](../schemas/calculation-receipt.schema.json). Optional `context` fields attach the result to a case, analysis, evidence IDs, units, and purpose. Missing context is reported rather than invented.
+
+The calculation identifier is content-addressed from method version and numeric inputs. Context is excluded so attaching the same arithmetic to a case does not change its identity. The caller owns storage, timestamps, actor identity, and approval events.
+
+Material quantitative claims should use this portal or another identified validated computation tool. The agent may explain the equation and result, but must not silently replace or alter the returned value.
+
+The server deliberately does not evaluate arbitrary expressions, access files or databases, calculate unimplemented p-values, or make acceptance/disposition decisions.
+
+### Harness configuration shape
+
+```json
+{
+  "mcpServers": {
+    "digitalie-calculator": {
+      "command": "python3",
+      "args": ["-m", "digital_ie.calculator_mcp"],
+      "env": { "PYTHONPATH": "/absolute/path/to/DigitalIE/src" }
+    }
+  }
+}
+```
+
+Replace the path with the local clone. Harness configuration syntax may differ; the command and stdio behavior remain the same.
+
+## Future case-management portal
+
 | Tool | Effect |
 |---|---|
 | `create_case` | Open a case in triage with a problem statement and owner |
@@ -15,7 +59,7 @@ The MCP exposes domain verbs, never arbitrary SQL or unrestricted plant writes.
 | `record_effectiveness_review` | Record post-change measured outcome |
 | `render_case_report` | Generate a noncanonical report projection |
 
-Tool responses return stable IDs, provenance, and state transitions. The future service layer authorizes every write and appends an audit event.
+Future case-management tool responses return stable IDs, provenance, and state transitions. That service layer will authorize every write and append an audit event.
 
 ## Portal governance
 

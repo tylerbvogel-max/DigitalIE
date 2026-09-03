@@ -4,3 +4,5 @@ __pycache__/
 .env
 coverage.xml
 .pytest_cache/
+build/
+*.egg-info/
