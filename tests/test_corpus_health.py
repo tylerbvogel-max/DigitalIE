@@ -1,3 +1,4 @@
+import json
 import unittest
 from pathlib import Path
 
@@ -8,6 +9,11 @@ ROOT = Path(__file__).parents[1]
 
 
 class CorpusHealthTests(unittest.TestCase):
+    def test_json_documents_parse(self):
+        for path in ROOT.rglob("*.json"):
+            with self.subTest(path=path.relative_to(ROOT)):
+                json.loads(path.read_text(encoding="utf-8"))
+
     def test_internal_markdown_links_resolve(self):
         self.assertEqual(broken_internal_links(ROOT), [])
 

@@ -23,7 +23,7 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 
 ## Current corpus
 
-- Industrial Engineering: triage, Gemba, 5 Why, Ishikawa, Pareto/stratification, SPC, value-stream mapping, and DMAIC/PDCA.
+- Industrial Engineering: triage, Gemba, causal methods, Pareto, SPC, flow/capacity, MSA, FMEA/control, descriptive statistics, probability, inference, comparisons, ANOVA, correlation, and regression.
 - Aerospace manufacturing: quality/conformance, configuration/traceability, readiness, critical-process governance, production control, supplier quality, airworthiness interfaces, change control, and operations data/AI.
 - Quality assurance: quality-system design, acceptance evidence, nonconformance, CAPA/8D, audit, document/record control, supplier quality, and quality metrics.
 - Production management: daily management, schedule execution, constraint control, material/labor readiness, shift handoffs, visual performance, and recovery leadership.

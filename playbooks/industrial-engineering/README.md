@@ -19,5 +19,18 @@ Choose the method from the problem shape.
 | Need a loss language for an asset/cell | [OEE and loss tree](12-oee-and-loss-trees.md) | A complete measure of business performance |
 | Missed output / overload / uneven flow | [Capacity and line balancing](13-capacity-and-line-balancing.md) | Headcount arithmetic alone |
 | A technically sound change is not sticking | [Change management](14-change-management.md) | Announcement or compliance theater |
+| Need distribution, center, spread, or an honest graph | [Descriptive statistics and graphs](15-descriptive-statistics-and-graphs.md) | Averages without raw shape, time order, or denominator |
+| Need to calculate uncertainty for events or measurements | [Probability and random variables](16-probability-and-random-variables.md) | Assuming independence or a distribution from convenience |
+| Need an estimate, standard error, or confidence interval | [Estimation and confidence intervals](17-estimation-and-confidence-intervals.md) | Treating confidence as certainty or standard deviation as standard error |
+| Need to test or compare means, proportions, or categories | [Hypothesis tests and comparisons](18-hypothesis-tests-and-comparisons.md) | P-value as effect size, causality, or product acceptance |
+| Need correlation, regression, model significance, or residual analysis | [Correlation and regression](19-correlation-and-regression.md) | Correlation as causality or R² as model validity |
 
 Each playbook ends with a next action, owner, and measure.
+
+## Statistical calculation standard
+
+For a material calculation, preserve the evidence dataset and report population/estimand, sampling unit, operational definition, units, filters/missingness, study design, selected equation, substituted values, unrounded result, software/function/version, assumptions/diagnostics, uncertainty/effect, and decision boundary. Use the [statistical analysis record](../../templates/statistical-analysis-record.md).
+
+The dependency-free [calculation kernel](../../src/digital_ie/statistics.py) implements and regression-tests the documented descriptive, t-statistic, Welch comparison, chi-square, ANOVA, correlation, and simple-regression equations. It verifies arithmetic only; it cannot establish measurement fitness, sampling validity, model assumptions, causality, specification conformance, or decision authority.
+
+Primary orientation reference: [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/). Local approved procedures and qualified statistical/domain review govern consequential applications.

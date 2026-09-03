@@ -13,5 +13,6 @@ References orient DigitalIE; they do not create local requirements or approval a
 | `ref-nist-ssdf-ai-800-218a` | [NIST SP 800-218A](https://www.nist.gov/publications/secure-software-development-practices-generative-ai-and-dual-use-foundation-models-ssdf) | Secure software-development practices for AI systems | active | 2026-09-03 | — |
 | `ref-anthropic-context-2025` | [Effective context engineering for AI agents](https://www.anthropic.com/engineering/effective-context-engineering-for-ai-agents) | Vendor-authored context-engineering practices | active orientation | 2026-09-03 | — |
 | `ref-openai-agent-guide` | [A practical guide to building agents](https://openai.com/business/guides-and-resources/a-practical-guide-to-building-ai-agents/) | Vendor-authored agent design, guardrails, and evaluation orientation | active orientation | 2026-09-03 | — |
+| `ref-nist-sem-ebook` | [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/) | Statistical methods, exploratory analysis, process comparison, modeling, and control | active orientation | 2026-09-03 | — |
 
 For each addition record the exact title, publisher, publication identifier/version or retrieval date, applicability boundary, status, review date, and supersession. Prefer primary sources. Paid or controlled standards may be named but must not be reproduced.

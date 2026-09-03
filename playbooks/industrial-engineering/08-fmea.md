@@ -19,6 +19,14 @@ For each process step, identify the intended function/requirement, failure mode,
 
 Score severity, occurrence, and detection only with team-defined, stable criteria. Severity belongs to the effect, not the likelihood. A high-severity item remains important even when rare. Use an action-priority rule or explicit risk matrix rather than pretending that identical RPN products represent identical risk.
 
+If a local method requires the traditional risk priority number:
+
+\[
+RPN=Severity\times Occurrence\times Detection
+\]
+
+Example: \(10\times2\times2=40\) and \(4\times5\times2=40\). The identical product conceals materially different severity and occurrence patterns. Preserve the three ratings, rationale, and high-severity escalation; never use RPN alone as an interval-scale risk measure or automatic acceptance threshold.
+
 Escalate safety, regulatory, customer-critical, and uncontrolled-escape risks. Actions must change prevention, detection, or consequence; reminders and retraining alone are insufficient.
 
 ## Exit
