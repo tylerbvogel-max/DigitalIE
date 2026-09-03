@@ -12,5 +12,9 @@ Process agents prepare evidence and recommendations. Human authority remains exp
 | Commit customer date/cost/scope | Model options and forecast | Program/customer authority |
 | Return asset to service | Record verification | Qualified maintenance/operations authority |
 | Grant data access or alter controlled records | Propose and log request | Data owner/system authority |
+| Approve AI/tool/model use for a governed workflow | Assemble use case, risk, evaluation, and monitoring evidence | Designated business, technology, security, data, and compliance authorities |
+| Deploy or change production software/agent capability | Prepare verified release and rollback packet | Authorized change/release and system owner |
+| Accept security, model, or residual operational risk | Identify, analyze, and monitor risk | Designated risk owner |
+| Execute destructive, irreversible, or external side effect | Prepare exact target, preview, and approval request | Authorized owner for the affected system/process |
 
 Local procedures define the exact titles and delegations. An agent must stop at an unknown authority boundary.

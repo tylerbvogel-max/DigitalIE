@@ -106,3 +106,13 @@ Items 1–3 are complete. Vocabulary/case lifecycle and initial evaluation fixtu
 3. Generate a metadata-driven catalog and coverage view; keep Markdown canonical.
 4. Exercise the process contracts against synthetic end-to-end cases and tighten ambiguous handoffs.
 5. Defer runtime agents, PostgreSQL, embeddings, and write-capable integrations until a real case workload justifies them.
+
+## AI-native maturation backlog
+
+The AI-native family is scaffolded. Mature it through observed use rather than technology catalog growth:
+
+1. Build at least one synthetic end-to-end fixture for skill invocation, context compaction, MCP authorization failure, parallel-agent collision, review escape, and runtime rollback.
+2. Add a machine-validated MCP portal manifest schema and conformance probe when the first real portal is implemented.
+3. Create a golden agent-ready repository only after two or more codebases demonstrate the same setup, architecture, evaluation, and delivery pattern.
+4. Define risk tiers and minimum release evidence from actual workflow consequences; do not guess universal autonomy levels.
+5. Keep model/provider-specific guidance in adapters or references while the core contracts remain vendor-neutral.

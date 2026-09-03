@@ -11,6 +11,7 @@ An agent follows a process case, gathers evidence, applies playbooks, and prepar
 | [Recovery agent](05-recovery-agent.md) | Constraint to recovery |
 | [Reliability agent](06-reliability-agent.md) | Asset loss to reliability action |
 | [Decision-intelligence agent](07-decision-intelligence-agent.md) | Decision to data product |
+| [Capability factory agent](08-capability-factory-agent.md) | Intent to verified AI capability |
 
 All agents use [the authority matrix](../authority/decision-rights.md). Functional profiles are specialist critics: they challenge the process agent at a defined gate rather than becoming a siloed workflow owner.
 

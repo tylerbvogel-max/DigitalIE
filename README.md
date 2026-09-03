@@ -27,6 +27,7 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - Production management: daily management, schedule execution, constraint control, material/labor readiness, shift handoffs, visual performance, and recovery leadership.
 - Program management, materials/supply chain, maintenance/reliability, and digital operations/data.
 - Technical management: requirements/verification, configuration, interfaces, technical risk, technical data, and formal decision analysis.
+- AI-native engineering: skills, context engineering, MCP portals, agent-ready repositories, agentic review/security, parallel orchestration, software factories, and evaluation.
 - Shared tools: problem framing, evidence standards, experiment design, and reference-versus-reality questioning.
 
 ## Repository map

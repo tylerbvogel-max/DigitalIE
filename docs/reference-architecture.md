@@ -6,6 +6,8 @@ The durable object is an **improvement case**, not a chat transcript and not a g
 
 The corpus has two orthogonal views: capability playbooks explain methods; process maps organize work from trigger to handoff. Process agents use capability profiles as specialist critics and stop at human decision gates.
 
+AI-native delivery uses the same model. [Its reference architecture](ai-native-architecture.md) separates host, agent runtime, skills, context, MCP portals, evaluation/policy, evidence, and delivery-factory responsibilities.
+
 ```mermaid
 flowchart LR
   U[Operator / engineer / supervisor] --> H[Harness or plant-floor UI]

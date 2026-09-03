@@ -16,3 +16,9 @@ The MCP exposes domain verbs, never arbitrary SQL or unrestricted plant writes.
 | `render_case_report` | Generate a noncanonical report projection |
 
 Tool responses return stable IDs, provenance, and state transitions. The future service layer authorizes every write and appends an audit event.
+
+## Portal governance
+
+Treat this server as a bounded capability portal, not a generic connection to the evidence store. Use the [portal manifest](portal-manifest.template.yaml) to declare ownership, transport, data classification, capabilities, schemas, authorization scopes, side effects, idempotency, human gates, audit events, timeouts, degraded behavior, and revocation.
+
+Read, propose, approve, and execute capabilities remain separate. An MCP client or server must not pass an upstream token through to another resource. Production mutations require exact target/scope, authorized approval, attributable audit, and a safe retry/rollback rule.

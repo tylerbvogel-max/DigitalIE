@@ -1,0 +1,30 @@
+id: portal.example
+version: 0.1.0
+owner: unassigned
+purpose: replace-with-bounded-domain-purpose
+transport: stdio-or-streamable-http
+data_classification: define-before-use
+capabilities:
+  resources: []
+  prompts: []
+  tools:
+    - name: example_read
+      effect: read
+      input_schema: define
+      output_schema: define
+      required_scopes: []
+      idempotent: true
+      human_gate: false
+      audit_events: [requested, completed, failed]
+      timeout_seconds: 30
+authorization:
+  identity_source: define
+  least_privilege: true
+  token_passthrough: prohibited
+operations:
+  rate_limit: define
+  retries: bounded-and-idempotent-only
+  degraded_behavior: fail-closed
+  revoke_path: define
+  shutdown_path: define
+  incident_owner: unassigned

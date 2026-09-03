@@ -16,3 +16,4 @@ Commitment → ready work → build → verify → release → learn
 | Threatened output or commitment | [Constraint to recovery](05-constraint-to-recovery.md) |
 | Asset loss or repeat downtime | [Asset loss to reliability action](06-asset-loss-to-reliability-action.md) |
 | Slow, disputed, or poorly informed decision | [Decision to data product](07-decision-to-data-product.md) |
+| Repeated work may benefit from AI or software automation | [Intent to verified AI capability](08-intent-to-verified-capability.md) |

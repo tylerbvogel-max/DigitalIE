@@ -11,6 +11,7 @@ Route from the decision or abnormal condition, not from a department name.
 | Output or a commitment is threatened | [Constraint to recovery](../processes/05-constraint-to-recovery.md) | State actual versus commitment and verify the governing constraint |
 | Production equipment is failed or degraded | [Asset loss to reliability action](../processes/06-asset-loss-to-reliability-action.md) | Put asset and affected product into a safe, controlled state |
 | A decision is slow, manual, disputed, or data-fragmented | [Decision to data product](../processes/07-decision-to-data-product.md) | Name user, decision, action window, evidence, and error cost |
+| Repeated work may benefit from deterministic automation, AI assistance, an agent, or a software factory | [Intent to verified AI capability](../processes/08-intent-to-verified-capability.md) | Frame user, work/outcome, baseline, error cost, data/tool authority, and human gate |
 | The applicable obligation or product definition is unclear | [Technical management](../playbooks/technical-management/README.md) | Identify authoritative requirement, baseline, interface, or source-data owner |
 
 For any real event, applicable employer procedures and authorized roles govern. If the route or authority is uncertain, preserve evidence and escalate rather than inventing a decision path.
