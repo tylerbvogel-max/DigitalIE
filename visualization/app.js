@@ -1,142 +1,36 @@
 import * as THREE from 'three';
 import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
 
-const planes = [
-  { id: 'capability', label: 'Capability library', color: '#6bc7ff', description: 'The functional reference: Industrial Engineering, QA, Production, Aerospace, Program, Materials, Reliability, and Digital Operations.', docs: [
-    ['Industrial Engineering', 16], ['Aerospace Manufacturing', 10], ['Quality Assurance', 9], ['Production Management', 9], ['Program Management', 7], ['Materials & Supply Chain', 7], ['Maintenance & Reliability', 7], ['Digital Operations & Data', 7],
-  ]},
-  { id: 'process', label: 'Process plane', color: '#b08cff', description: 'Cross-functional work flows. A process selects the relevant capability playbooks and carries the case across handoffs.', docs: [
-    ['Commitment → Ready Work', 1], ['Build → Acceptance', 1], ['Exception → Disposition', 1], ['Change → Effective Control', 1], ['Constraint → Recovery', 1], ['Asset Loss → Reliability', 1], ['Decision → Data Product', 1],
-  ]},
-  { id: 'agents', label: 'Process agents', color: '#7fe29b', description: 'Future harness-facing roles. Each card states inputs, allowed actions, specialist critics, escalation gates, and outputs.', docs: [
-    ['Readiness', 1], ['Conformance', 1], ['Exception', 1], ['Change-impact', 1], ['Recovery', 1], ['Reliability', 1], ['Decision-intelligence', 1],
-  ]},
-  { id: 'authority', label: 'Authority gates', color: '#ffd166', description: 'The human decision boundaries agents cannot cross: release, disposition, compliance, change, commitment, return-to-service, and access.', docs: [['Decision rights', 1], ['Specialist critics', 1], ['ADR: process agents', 1]] },
-  { id: 'learning', label: 'Learning & templates', color: '#ff8f70', description: 'Discovery patterns, local learning inputs, and reusable field artifacts. This is where future sanitized observations enter.', docs: [['Discovery patterns', 8], ['Operational templates', 14], ['Reference vs. reality ledger', 1], ['Next items plan', 1]] },
-  { id: 'governance', label: 'Governance kernel', color: '#f58ad8', description: 'The planned layer that will classify reference, baseline, observation, and adopted practice; govern supersession, review, and agent evaluation.', docs: [['Corpus quality bar', 1], ['Architecture decisions', 3], ['Next-items kernel plan', 8]] },
-  { id: 'automation', label: 'Optional automation', color: '#69d7d2', description: 'A future implementation seed: schemas, fixtures, integrity checks, adapter and MCP contracts. Not required to use the Markdown corpus.', docs: [['Schemas', 3], ['Fixture case', 4], ['Integrity tests', 2], ['MCP contract', 1], ['CSV adapter', 1], ['Reference architecture', 3]] },
+const repository = 'https://github.com/tylerbvogel-max/DigitalIE/blob/main/';
+const facilities = [
+  { id: 'capability', label: 'Capability Library', kind: 'Reference bays', color: '#55c8ff', p: [-230, 0, -95], s: [150, 64, 110], roof: 'saw', description: 'The functional-method library: Industrial Engineering, Quality, Production, Program, Materials, Reliability, Aerospace, and Digital Operations.', files: ['playbooks/industrial-engineering/README.md', 'playbooks/quality-assurance/README.md', 'profiles/industrial-engineer.md', 'skills/spc.md'] },
+  { id: 'process', label: 'Process Control', kind: 'Control tower', color: '#aa8cff', p: [0, 0, -10], s: [104, 145, 86], roof: 'tower', description: 'The cross-functional operating spine. It takes a case across readiness, build, exception, change, recovery, reliability, or decision-data work.', files: ['processes/README.md', 'processes/02-build-to-acceptance.md', 'processes/03-exception-to-disposition.md'] },
+  { id: 'agents', label: 'Agent Dispatch', kind: 'Operations center', color: '#72e4a0', p: [180, 0, -115], s: [120, 78, 88], roof: 'flat', description: 'Harness-facing process agents: each routes work, declares its specialist critics, preserves evidence, and stops at a human decision gate.', files: ['agents/README.md', 'agents/02-conformance-agent.md', 'agents/03-exception-agent.md', 'agents/07-decision-intelligence-agent.md'] },
+  { id: 'authority', label: 'Authority Gate', kind: 'Controlled access', color: '#ffd46b', p: [190, 0, 125], s: [82, 92, 82], roof: 'gate', description: 'The human control point. Agents can prepare an evidence-backed decision request, but release, disposition, change, compliance, and access rights remain governed here.', files: ['authority/decision-rights.md', 'authority/specialist-critic-pattern.md', 'docs/adr/0003-process-agents-over-functional-silos.md'] },
+  { id: 'learning', label: 'Learning Lab', kind: 'Continuous-improvement lab', color: '#ff997f', p: [-115, 0, 170], s: [115, 72, 100], roof: 'gable', description: 'Discovery protocols, reusable field templates, and the reference-versus-reality loop. Future sanitized observations enter here before any adoption into baseline guidance.', files: ['learning/intake-and-challenge-protocol.md', 'templates/reference-vs-reality.md', 'next_items.md'] },
+  { id: 'automation', label: 'Data & Evidence Hub', kind: 'Data plant', color: '#62d9d3', p: [-300, 0, 130], s: [92, 105, 78], roof: 'stack', description: 'Optional implementation substrate: schemas, fixtures, integrity tests, adapters, and MCP contracts. It supports the corpus; it is not required to use the corpus.', files: ['schemas/case.schema.json', 'fixtures/assembly-torque-failure/case.json', 'mcp/README.md', 'src/digital_ie/integrity.py'] },
+  { id: 'governance', label: 'Governance Office', kind: 'Planned kernel', color: '#f58edc', p: [-20, 0, 300], s: [92, 62, 76], roof: 'clear', description: 'The planned corpus kernel: content classes, information boundary, source/supersession, local-learning review, and process-agent evaluation.', files: ['next_items.md', 'docs/corpus-quality-bar.md', 'docs/adr/0002-evidence-gated-conclusions.md'] },
 ];
-
-const canvas = document.querySelector('#scene');
-const panelTitle = document.querySelector('#title');
-const panelDescription = document.querySelector('#description');
-const facts = document.querySelector('#facts');
-const tooltip = document.querySelector('#tooltip');
-const legend = document.querySelector('#legend');
-
-const scene = new THREE.Scene();
-scene.background = new THREE.Color('#0a1020');
-scene.fog = new THREE.FogExp2('#0a1020', 0.00055);
-const camera = new THREE.PerspectiveCamera(50, innerWidth / innerHeight, 1, 3000);
-camera.position.set(0, 240, 930);
-const renderer = new THREE.WebGLRenderer({ canvas, antialias: true });
-renderer.setPixelRatio(Math.min(devicePixelRatio, 2));
-renderer.setSize(innerWidth, innerHeight);
-renderer.outputColorSpace = THREE.SRGBColorSpace;
-renderer.setAnimationLoop(render);
-const controls = new OrbitControls(camera, renderer.domElement);
-controls.enableDamping = true;
-controls.dampingFactor = .06;
-controls.minDistance = 180;
-controls.maxDistance = 1500;
-controls.target.set(0, 0, 0);
-
-scene.add(new THREE.HemisphereLight('#a9c8ff', '#0a1022', 2.2));
-const raycaster = new THREE.Raycaster();
-raycaster.params.Points.threshold = 18;
-const pointer = new THREE.Vector2();
-const selectable = [];
-const focus = { target: new THREE.Vector3(), position: new THREE.Vector3(), active: false };
-
-function color(hex) { return new THREE.Color(hex); }
-function makeLabel(text, hex, position) {
-  const canvas = document.createElement('canvas');
-  canvas.width = 512; canvas.height = 96;
-  const context = canvas.getContext('2d');
-  context.font = '700 32px system-ui'; context.textAlign = 'center';
-  context.fillStyle = hex; context.fillText(text.toUpperCase(), 256, 58);
-  const texture = new THREE.CanvasTexture(canvas);
-  const material = new THREE.SpriteMaterial({ map: texture, transparent: true, opacity: 1, depthWrite: false, depthTest: false, fog: false });
-  const sprite = new THREE.Sprite(material);
-  sprite.position.copy(position); sprite.position.y += 76;
-  sprite.scale.set(155, 29, 1); scene.add(sprite);
-}
-function edge(a, b, hex, opacity = .22) {
-  const geometry = new THREE.BufferGeometry().setFromPoints([a, b]);
-  const material = new THREE.LineBasicMaterial({ color: hex, transparent: true, opacity });
-  scene.add(new THREE.Line(geometry, material));
-}
-function setPanel(data) {
-  panelTitle.textContent = data.label;
-  panelDescription.textContent = data.description;
-  facts.innerHTML = `<div><dt>PLANE</dt><dd>${data.plane || 'Corpus overview'}</dd></div><div><dt>REPRESENTS</dt><dd>${data.detail || 'DigitalIE architecture and its connected documentation.'}</dd></div>`;
-}
-function focusOn(position, data) {
-  focus.target.copy(position);
-  focus.position.copy(position).add(new THREE.Vector3(0, 64, 220));
-  focus.active = true; setPanel(data);
-}
-
-const root = new THREE.Group(); scene.add(root);
-const rootSphere = new THREE.Mesh(
-  new THREE.IcosahedronGeometry(25, 2), new THREE.MeshStandardMaterial({ color: '#f3f8ff', emissive: '#6bc7ff', emissiveIntensity: 1.7, roughness: .35 }),
-);
-rootSphere.userData = { label: 'DigitalIE', description: 'The clean-room manufacturing operations corpus. Click a district to examine its role.', plane: 'Root', detail: 'Capability library × process plane × authority gates' };
-root.add(rootSphere); selectable.push(rootSphere);
-
-planes.forEach((plane, index) => {
-  const theta = (index / planes.length) * Math.PI * 2 - Math.PI / 2;
-  const district = new THREE.Vector3(Math.cos(theta) * 300, (index % 2 ? 45 : -45), Math.sin(theta) * 300);
-  const group = new THREE.Group(); group.position.copy(district); root.add(group);
-  const districtNode = new THREE.Mesh(
-    new THREE.IcosahedronGeometry(20, 2), new THREE.MeshStandardMaterial({ color: plane.color, emissive: plane.color, emissiveIntensity: 1.7, roughness: .42 }),
-  );
-  districtNode.userData = { label: plane.label, description: plane.description, plane: 'Corpus district', detail: `${plane.docs.length} document clusters` };
-  group.add(districtNode); selectable.push(districtNode); edge(new THREE.Vector3(), district, plane.color, .36);
-  makeLabel(plane.label, plane.color, district);
-  const count = plane.docs.length;
-  plane.docs.forEach(([label, pages], docIndex) => {
-    const angle = (docIndex / count) * Math.PI * 2;
-    const radial = 74 + (docIndex % 2) * 22;
-    const local = new THREE.Vector3(Math.cos(angle) * radial, Math.sin(angle * 2.3) * 20, Math.sin(angle) * radial);
-    const node = new THREE.Mesh(
-      new THREE.SphereGeometry(4 + Math.min(pages, 16) * .55, 18, 18),
-      new THREE.MeshStandardMaterial({ color: plane.color, emissive: plane.color, emissiveIntensity: 1.1, roughness: .48 }),
-    );
-    node.position.copy(local);
-    node.userData = { label, description: `${pages} represented document${pages === 1 ? '' : 's'} in the ${plane.label} district.`, plane: plane.label, detail: `Click to focus · derived from repository structure` };
-    group.add(node); selectable.push(node); edge(district, district.clone().add(local), plane.color, .16);
-  });
-});
-
-planes.forEach((plane) => {
-  const row = document.createElement('div'); row.className = 'legend-row';
-  row.innerHTML = `<span class="dot" style="background:${plane.color}"></span>${plane.label}`;
-  legend.append(row);
-});
-
-function pick(event, click = false) {
-  pointer.x = (event.clientX / innerWidth) * 2 - 1;
-  pointer.y = -(event.clientY / innerHeight) * 2 + 1;
-  raycaster.setFromCamera(pointer, camera);
-  const hit = raycaster.intersectObjects(selectable, false)[0];
-  if (!hit) { tooltip.hidden = true; return; }
-  const data = hit.object.userData;
-  if (click) focusOn(hit.object.getWorldPosition(new THREE.Vector3()), data);
-  tooltip.hidden = false; tooltip.textContent = data.label;
-  tooltip.style.left = `${event.clientX + 14}px`; tooltip.style.top = `${event.clientY + 14}px`;
-}
-canvas.addEventListener('pointermove', event => pick(event));
-canvas.addEventListener('pointerleave', () => { tooltip.hidden = true; });
-canvas.addEventListener('click', event => pick(event, true));
-addEventListener('keydown', event => { if (event.key.toLowerCase() === 'r') { focus.active = false; controls.target.set(0, 0, 0); camera.position.set(0, 240, 930); setPanel({ label: 'The whole corpus', description: 'Orbit the map. Colored districts are the major corpus planes; each node is a document or a process/agent asset.', detail: 'Drag to orbit · scroll to zoom · click to focus · R to reset' }); } });
-addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
-
-function render(time) {
-  if (focus.active) {
-    controls.target.lerp(focus.target, .06); camera.position.lerp(focus.position, .045);
-    if (camera.position.distanceTo(focus.position) < 1) focus.active = false;
-  }
-  rootSphere.scale.setScalar(1 + Math.sin(time * .002) * .08);
-  controls.update(); renderer.render(scene, camera);
-}
+const routes = [
+  ['capability', 'process', '#55c8ff'], ['process', 'agents', '#72e4a0'], ['agents', 'authority', '#ffd46b'], ['authority', 'process', '#ffd46b'], ['process', 'learning', '#ff997f'], ['learning', 'governance', '#f58edc'], ['governance', 'capability', '#f58edc'], ['automation', 'agents', '#62d9d3'], ['capability', 'automation', '#62d9d3'],
+];
+const canvas = document.querySelector('#scene'); const title = document.querySelector('#title'); const description = document.querySelector('#description'); const facts = document.querySelector('#facts'); const citations = document.querySelector('#citations'); const tooltip = document.querySelector('#tooltip'); const legend = document.querySelector('#legend');
+const scene = new THREE.Scene(); scene.background = new THREE.Color('#07111c'); scene.fog = new THREE.FogExp2('#07111c', .0008);
+const camera = new THREE.PerspectiveCamera(47, innerWidth / innerHeight, 1, 2400); camera.position.set(420, 460, 590);
+const renderer = new THREE.WebGLRenderer({ canvas, antialias: true }); renderer.setPixelRatio(Math.min(devicePixelRatio, 2)); renderer.setSize(innerWidth, innerHeight); renderer.outputColorSpace = THREE.SRGBColorSpace; renderer.setAnimationLoop(render);
+const controls = new OrbitControls(camera, renderer.domElement); controls.target.set(-30, 0, 50); controls.enableDamping = true; controls.dampingFactor = .055; controls.minDistance = 270; controls.maxDistance = 1150; controls.maxPolarAngle = Math.PI * .46;
+scene.add(new THREE.HemisphereLight('#b9e8ff', '#07111c', 2.7)); const sun = new THREE.DirectionalLight('#fff2cd', 2.6); sun.position.set(-350, 520, 240); scene.add(sun);
+const root = new THREE.Group(); scene.add(root); const pickables = []; const byId = new Map(); const packets = []; const raycaster = new THREE.Raycaster(); const pointer = new THREE.Vector2(); const focus = { target: new THREE.Vector3(), position: new THREE.Vector3(), active: false };
+const vec = a => new THREE.Vector3(...a); const mat = (color, glow = .2) => new THREE.MeshStandardMaterial({ color, emissive: color, emissiveIntensity: glow, roughness: .55, metalness: .08 });
+function box(group, size, pos, color, glow = .15) { const mesh = new THREE.Mesh(new THREE.BoxGeometry(...size), mat(color, glow)); mesh.position.copy(pos); group.add(mesh); return mesh; }
+function label(text, color, position) { const c = document.createElement('canvas'); c.width = 640; c.height = 100; const x = c.getContext('2d'); x.font = '800 34px system-ui'; x.fillStyle = color; x.textAlign = 'center'; x.fillText(text.toUpperCase(), 320, 58); const sprite = new THREE.Sprite(new THREE.SpriteMaterial({ map: new THREE.CanvasTexture(c), transparent: true, depthTest: false, fog: false })); sprite.position.copy(position); sprite.position.y = 160; sprite.scale.set(140, 22, 1); root.add(sprite); }
+function addRoof(group, f, top) { const [x, , z] = f.s; const color = new THREE.Color(f.color).offsetHSL(0, -.08, -.15); if (f.roof === 'tower' || f.roof === 'flat') box(group, [x + 8, f.roof === 'tower' ? 14 : 9, z + 8], new THREE.Vector3(0, top + 6, 0), color, .35); if (f.roof === 'gable') { const r = new THREE.Mesh(new THREE.ConeGeometry(Math.max(x, z) * .7, 34, 4), mat(color, .35)); r.rotation.y = Math.PI / 4; r.scale.z = z / x; r.position.y = top + 16; group.add(r); } if (f.roof === 'saw') for (let i = -2; i <= 2; i++) { const r = new THREE.Mesh(new THREE.ConeGeometry(21, 23, 3), mat(color, .3)); r.rotation.y = Math.PI / 2; r.position.set(i * 25, top + 10, 0); group.add(r); } if (f.roof === 'gate') { const r = new THREE.Mesh(new THREE.TorusGeometry(25, 7, 10, 28, Math.PI), mat(color, .5)); r.rotation.z = Math.PI; r.position.set(0, top - 16, z / 2 + 2); group.add(r); } if (f.roof === 'stack') for (let i = -1; i <= 1; i++) box(group, [15, 45 + i * 8, 15], new THREE.Vector3(i * 25, top + 25, -z / 4), color, .5); if (f.roof === 'clear') { box(group, [x * .52, 24, z * .6], new THREE.Vector3(0, top + 12, 0), color, .4); box(group, [x + 6, 8, z + 6], new THREE.Vector3(0, top + 4, 0), color, .35); } }
+function building(f) { const g = new THREE.Group(); g.position.copy(vec(f.p)); root.add(g); byId.set(f.id, { ...f, g }); const [x, y, z] = f.s; const body = box(g, [x, y, z], new THREE.Vector3(0, y / 2, 0), new THREE.Color(f.color).offsetHSL(0, -.18, -.22)); const glass = new THREE.MeshStandardMaterial({ color: '#b9f4ff', emissive: f.color, emissiveIntensity: 1.4, roughness: .22, metalness: .55 }); for (let i = -1; i <= 1; i++) { const w = new THREE.Mesh(new THREE.BoxGeometry(18, 16, 2), glass); w.position.set(i * 27, y * .56, z / 2 + 1.5); g.add(w); } const door = box(g, [22, 28, 3], new THREE.Vector3(0, 14, z / 2 + 2), '#07101a', 0); addRoof(g, f, y); label(f.label, f.color, g.position); body.userData = f; door.userData = f; pickables.push(body, door); }
+function route(from, to, color, index) { const a = byId.get(from).g.position.clone().add(new THREE.Vector3(0, 16, 0)); const b = byId.get(to).g.position.clone().add(new THREE.Vector3(0, 16, 0)); const m = a.clone().lerp(b, .5); m.y += 48 + index % 3 * 16; const curve = new THREE.QuadraticBezierCurve3(a, m, b); root.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(curve.getPoints(32)), new THREE.LineBasicMaterial({ color, transparent: true, opacity: .55 }))); const packet = new THREE.Mesh(new THREE.SphereGeometry(5.2, 16, 16), mat(color, 1.6)); root.add(packet); packets.push({ curve, packet, offset: index / routes.length, speed: .035 + index % 4 * .006 }); }
+function panel(item) { title.textContent = item.label; description.textContent = item.description; facts.innerHTML = `<div><dt>FACILITY</dt><dd>${item.kind || 'DigitalIE factory campus'}</dd></div><div><dt>ROLE</dt><dd>${item.kind ? 'Repository-backed operating capability.' : 'Follow colored payloads to see control, evidence, and learning paths.'}</dd></div>`; citations.innerHTML = item.files ? item.files.map(path => `<a href="${repository}${path}" target="_blank" rel="noreferrer">${path}</a>`).join('') : ''; }
+function choose(item) { focus.target.copy(item.g.position); focus.position.copy(item.g.position).add(new THREE.Vector3(180, 165, 245)); focus.active = true; panel(item); }
+function pick(event, clicked = false) { pointer.x = event.clientX / innerWidth * 2 - 1; pointer.y = -(event.clientY / innerHeight) * 2 + 1; raycaster.setFromCamera(pointer, camera); const hit = raycaster.intersectObjects(pickables, false)[0]; if (!hit) { tooltip.hidden = true; return; } const item = hit.object.userData; tooltip.hidden = false; tooltip.textContent = item.label; tooltip.style.left = `${event.clientX + 14}px`; tooltip.style.top = `${event.clientY + 14}px`; if (clicked) choose(byId.get(item.id)); }
+const grid = new THREE.GridHelper(760, 38, '#28455c', '#14293a'); grid.position.y = -1; root.add(grid); const floor = new THREE.Mesh(new THREE.PlaneGeometry(810, 810), mat('#0a1a27', 0)); floor.rotation.x = -Math.PI / 2; floor.position.y = -2; root.add(floor); const road = mat('#1a3545', .35); [[760, 18, 0, 0], [18, 760, 0, 0], [600, 12, 0, -105], [12, 590, 125, 0]].forEach(([x, z, px, pz]) => box(root, [x, 2, z], new THREE.Vector3(px, 0, pz), road.color));
+facilities.forEach(building); routes.forEach(([a, b, color], i) => route(a, b, color, i)); facilities.forEach(f => { const row = document.createElement('div'); row.className = 'legend-row'; row.innerHTML = `<span class="dot" style="background:${f.color}"></span>${f.label}`; legend.append(row); });
+canvas.addEventListener('pointermove', e => pick(e)); canvas.addEventListener('pointerleave', () => { tooltip.hidden = true; }); canvas.addEventListener('click', e => pick(e, true)); addEventListener('keydown', e => { if (e.key.toLowerCase() === 'r') { focus.active = false; controls.target.set(-30, 0, 50); camera.position.set(420, 460, 590); panel({ label: 'The whole corpus', description: 'A factory-campus representation of DigitalIE. Colored payloads show the control, evidence, and learning paths between buildings.' }); } }); addEventListener('resize', () => { camera.aspect = innerWidth / innerHeight; camera.updateProjectionMatrix(); renderer.setSize(innerWidth, innerHeight); });
+function render(time) { packets.forEach(({ curve, packet, offset, speed }) => packet.position.copy(curve.getPoint((offset + time * .001 * speed) % 1))); if (focus.active) { controls.target.lerp(focus.target, .07); camera.position.lerp(focus.position, .05); if (camera.position.distanceTo(focus.position) < 1) focus.active = false; } controls.update(); renderer.render(scene, camera); }

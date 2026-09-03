@@ -9,11 +9,15 @@ body { margin: 0; overflow: hidden; background: #060914; color: #eef3ff; }
 #brand p, .eyebrow { color: #72dcff; font-size: 11px; font-weight: 800; letter-spacing: .16em; margin: 0 0 4px; }
 #brand h1 { font-size: 21px; margin: 0; letter-spacing: -.04em; }
 #brand span { color: #aab8d4; display: block; font-size: 12px; margin-top: 5px; }
-#panel { bottom: 24px; left: 26px; width: min(370px, calc(100vw - 52px)); min-height: 160px; padding: 18px; border-radius: 14px; }
+#panel { bottom: 24px; left: 26px; width: min(410px, calc(100vw - 52px)); min-height: 160px; padding: 18px; border-radius: 14px; }
 #panel h2 { font-size: 21px; margin: 2px 0 8px; letter-spacing: -.03em; }
 #panel p:not(.eyebrow) { color: #c0cae0; font-size: 14px; line-height: 1.5; margin: 0 0 12px; }
 dl { margin: 0; } dl div { border-top: 1px solid rgba(173, 204, 255, .12); padding-top: 10px; }
 dt { color: #8090b4; font-size: 10px; font-weight: 800; letter-spacing: .13em; } dd { color: #ecf2ff; font-size: 12px; line-height: 1.45; margin: 3px 0 0; }
+#citations { border-top: 1px solid rgba(173, 204, 255, .12); display: grid; gap: 4px; margin-top: 11px; padding-top: 10px; }
+#citations:empty { display: none; }
+#citations a { color: #7edcff; font-family: ui-monospace, SFMono-Regular, Menlo, monospace; font-size: 10px; line-height: 1.35; overflow-wrap: anywhere; text-decoration: none; }
+#citations a:hover { color: #fff; text-decoration: underline; }
 #legend { right: 26px; bottom: 24px; border-radius: 12px; padding: 13px; display: grid; gap: 7px; }
 .legend-row { align-items: center; color: #cad5ed; display: flex; font-size: 12px; gap: 8px; }
 .dot { border-radius: 50%; height: 9px; width: 9px; }
