@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://digitalie.local/schemas/corpus-entry.schema.json",
+  "title": "DigitalIE corpus entry metadata",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["id", "type", "status", "scope", "source_class", "owner", "review_by", "supersedes"],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9.-]+$" },
+    "type": { "enum": ["playbook", "process", "agent", "profile", "skill", "template", "reference", "framework", "evaluation"] },
+    "status": { "enum": ["draft", "baseline", "candidate", "adopted-practice", "superseded", "rejected"] },
+    "scope": { "type": "string", "minLength": 1 },
+    "source_class": { "enum": ["reference", "baseline", "observation", "candidate", "adopted-practice"] },
+    "owner": { "type": "string", "minLength": 1 },
+    "review_by": { "type": ["string", "null"], "format": "date" },
+    "supersedes": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "related": { "type": "array", "items": { "type": "string" }, "uniqueItems": true },
+    "decision_gates": { "type": "array", "items": { "type": "string" }, "uniqueItems": true }
+  }
+}

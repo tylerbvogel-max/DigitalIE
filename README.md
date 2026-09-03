@@ -6,10 +6,14 @@ It keeps observation, hypothesis, validated cause, corrective action, and effect
 
 ## How to use it in a new environment
 
-1. Start with [the intake and challenge protocol](learning/intake-and-challenge-protocol.md), not a proposed fix.
-2. Select a fit-for-purpose method from [the Industrial Engineering playbooks](playbooks/industrial-engineering/README.md).
-3. Record observed practice separately from the reference model in [the gap ledger template](templates/reference-vs-reality.md).
-4. Record each local deviation with its rationale, owner, and measured consequence.
+1. Start with [the process router](framework/start-here.md) and name the decision or abnormal condition.
+2. Use [the intake and challenge protocol](learning/intake-and-challenge-protocol.md), not a proposed fix.
+3. Select a fit-for-purpose method from the capability playbooks.
+4. Keep real records in employer-approved systems and apply [the information boundary](framework/information-boundary.md).
+5. Record sanitized observed practice separately from the reference model using [the gap ledger](templates/reference-vs-reality.md) or [local-observation template](templates/local-observation.md).
+6. Define the baseline, intervention mechanism, authority, and effectiveness measure before calling an improvement successful.
+
+Read [the operating thesis](docs/operating-thesis.md) for the outcomes DigitalIE is intended to improve and the authority it does not assume.
 
 ## Process and agent views
 
@@ -22,6 +26,7 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - Quality assurance: quality-system design, acceptance evidence, nonconformance, CAPA/8D, audit, document/record control, supplier quality, and quality metrics.
 - Production management: daily management, schedule execution, constraint control, material/labor readiness, shift handoffs, visual performance, and recovery leadership.
 - Program management, materials/supply chain, maintenance/reliability, and digital operations/data.
+- Technical management: requirements/verification, configuration, interfaces, technical risk, technical data, and formal decision analysis.
 - Shared tools: problem framing, evidence standards, experiment design, and reference-versus-reality questioning.
 
 ## Repository map
@@ -31,6 +36,9 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - `agents/` — process-agent boundaries and orchestration patterns.
 - `authority/` — human decision rights that agents cannot assume.
 - `learning/` — first-contact and discovery patterns.
+- `framework/` — information boundary, content authority, vocabulary, case lifecycle, contribution control, and corpus health.
+- `operating-system/` — daily management, cross-functional reviews, and benefits realization.
+- `local-observations/`, `candidates/`, and `references/` — governed learning intake and source register.
 - `templates/` — reusable field guides and gap records.
 - `docs/` — supporting architecture, ontology, integration contracts, and decisions.
 - `profiles/` and `skills/` — concise harness-agnostic agent behavior cards.

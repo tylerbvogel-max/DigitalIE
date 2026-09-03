@@ -1,5 +1,7 @@
 # Next items: governed corpus kernel
 
+> Status, 2026-09-03: the initial governed kernel, source/observation intake, canonical vocabulary, case lifecycle, technical-management family, process contracts, operating cadence, agent fixtures, and baseline corpus fitness checks are implemented. Remaining work is refinement and controlled metadata rollout, not another unbounded content expansion.
+
 The capability library, process plane, agent cards, and authority matrix are established. The next work is not another functional domain. It is the lightweight governance that lets DigitalIE absorb real experience without turning a local workaround into universal guidance.
 
 ## Objective
@@ -97,4 +99,10 @@ Create `framework/start-here.md` as the first router: commitment, ready-work, bu
 
 ## First implementation slice
 
-Build items 1–3 first. They establish the privacy boundary and prevent ungoverned local learning. Then add vocabulary/case lifecycle and the evaluation fixtures before any runtime agent or database work.
+Items 1–3 are complete. Vocabulary/case lifecycle and initial evaluation fixtures are also complete. Next:
+
+1. Roll required front matter across governed content in small reviewed batches and make schema validation a CI gate only after the corpus is conformant.
+2. Add at least four adversarial fixtures for every process agent, including critic conflict and authority-pressure cases.
+3. Generate a metadata-driven catalog and coverage view; keep Markdown canonical.
+4. Exercise the process contracts against synthetic end-to-end cases and tighten ambiguous handoffs.
+5. Defer runtime agents, PostgreSQL, embeddings, and write-capable integrations until a real case workload justifies them.

@@ -13,3 +13,5 @@ An agent follows a process case, gathers evidence, applies playbooks, and prepar
 | [Decision-intelligence agent](07-decision-intelligence-agent.md) | Decision to data product |
 
 All agents use [the authority matrix](../authority/decision-rights.md). Functional profiles are specialist critics: they challenge the process agent at a defined gate rather than becoming a siloed workflow owner.
+
+Agent changes must be exercised against [synthetic process-agent evaluations](../evals/process-agents/README.md). Passing means correct routing, evidence discipline, critic selection, and authority restraint; polished prose is not a pass condition.

@@ -11,3 +11,18 @@
 **Outputs:** verified return-to-service, loss record, reliability action, and production recovery input.
 
 **Calls:** Maintenance & Reliability, Production Management, Quality Assurance, Industrial Engineering.
+
+## Process contract
+
+| State | Minimum evidence | Exit condition |
+|---|---|---|
+| Safe/controlled | asset and affected product identity, symptom, hazards | energy/product/status controls verified |
+| Diagnose | operating context, history, evidence preserved | failure mechanism sufficiently supported for repair decision |
+| Repair pending/executing | qualified work, parts, instructions, verification criteria | repair completed with attributable record |
+| Return pending | function, calibration/validation, product impact checks | authorized return-to-service decision recorded |
+| Reliability action | criticality, recurrence, PM/spares/operating evidence | strategy action and expected loss reduction assigned |
+| Effectiveness | observation window and performance target | sustained result or revised hypothesis/action |
+
+**Decision gates:** safe work, qualified repair, calibration/validation, product-impact disposition, return to service, and maintenance/capital strategy use local authorized roles.
+
+**Measures:** response/repair/restore time, repeat interval, availability at required demand, planned-work ratio, spares-caused delay, product exposure, and verified loss reduction.
