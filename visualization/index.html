@@ -1,0 +1,31 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>DigitalIE — Corpus Atlas</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <main id="atlas">
+    <canvas id="scene" aria-label="Interactive 3D map of the DigitalIE corpus"></canvas>
+    <section id="brand"><p>DigitalIE</p><h1>Corpus Atlas</h1><span>Capability library × process plane × authority gates</span></section>
+    <aside id="panel">
+      <p class="eyebrow">SELECTED</p><h2 id="title">The whole corpus</h2>
+      <p id="description">Orbit the map. Colored districts are the major corpus planes; each node is a document or a process/agent asset.</p>
+      <dl id="facts"><div><dt>Controls</dt><dd>Drag to orbit · scroll to zoom · click to focus · R to reset</dd></div></dl>
+    </aside>
+    <div id="legend"></div>
+    <div id="tooltip" hidden></div>
+  </main>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://unpkg.com/three@0.172.0/build/three.module.js",
+        "three/addons/": "https://unpkg.com/three@0.172.0/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module" src="app.js"></script>
+</body>
+</html>
