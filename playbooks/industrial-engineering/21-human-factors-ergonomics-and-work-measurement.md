@@ -28,4 +28,4 @@ The agent may organize observations and run approved equations. It may not make 
 
 Task boundary, population and conditions observed, method/revision, evidence, exposure and work-content results, uncertainty, error-likely situations, design alternatives, safety/quality review needs, trial plan, owner, and approval.
 
-Public orientation: [NCEES PE Industrial and Systems specification](https://ncees.org/wp-content/uploads/PE-Ind-Oct-2020_with-codes-and-standards.pdf) and [Michigan IOE graduate areas](https://ioe.engin.umich.edu/graduate/masters-programs/industrial-and-operations-engineering-masters/masters-program-curriculum/).
+Public orientation: [NCEES PE Industrial and Systems specification](https://ncees.org/wp-content/uploads/2022/09/PE-Ind-Oct-2020_with-codes-and-standards.pdf) and [Michigan IOE graduate areas](https://ioe.engin.umich.edu/graduate/masters-programs/industrial-and-operations-engineering-masters/masters-program-curriculum/).

@@ -1,6 +1,6 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://digitalie.dev/schemas/hypothesis.schema.json",
+  "$id": "https://digitalie.local/schemas/hypothesis.schema.json",
   "title": "Causal Hypothesis",
   "type": "object",
   "required": ["id", "case_id", "claim", "status", "evidence_ids"],

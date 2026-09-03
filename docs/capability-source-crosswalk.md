@@ -39,23 +39,23 @@ Do not reproduce paid bodies of knowledge or controlled aerospace requirements. 
 
 ## Capability disposition
 
-| Capability | Deterministic component | Judgment component | Initial disposition |
+| Capability | Deterministic component | Judgment component | Current disposition |
 |---|---|---|---|
-| Statistical quality control | limits, capability, yield, sampling probabilities | rational subgrouping, stability, reaction | deepen existing IE family |
-| Measurement systems | variance components and study ratios | study design, measurement fitness, action | deepen existing MSA family |
-| Design of experiments | effects, interactions, ANOVA | experimental design, randomization, causal limits | add quality/IE pack |
-| Production flow | takt, capacity, OEE, Little's Law, RTY, queues | boundary, constraint, release policy, countermeasures | deepen production/IE family |
-| Forecast and inventory | forecast/error, EOQ, safety stock, reorder point, MRP netting | demand regime, service policy, effectivity, overrides | deepen supply family |
-| Schedule controls | network dates, float, PERT, reproducible simulation | logic quality, status credibility, recovery authority | deepen program family |
-| Reliability | life distributions, availability, system reliability | failure definition, censoring, model fitness, maintenance strategy | deepen reliability family |
-| Engineering economics | cash-flow equivalence, NPV, IRR, break-even, life-cycle cost | alternatives, estimate basis, uncertainty, approval | add cross-functional pack |
-| Operations research | typed optimization and simulation | formulation, constraints, objective, validation, sensitivity | add IE modeling skill |
-| Human factors/work design | work-sample and approved ergonomic equations | observation, task boundary, safety/medical authority | add IE skill; constrain calculations |
-| Facilities/material handling | space, flow, weighted location and capacity arithmetic | layout generation, hazards, expansion, implementation | add IE skill |
-| Producibility/DFMA | comparative counts, time/cost/yield scenarios | design critique, requirement trade, engineering authority | add aerospace skill |
-| Materials/process qualification | study summaries and capability evidence | process physics, qualification plan, acceptance | add aerospace skill |
-| Test and evaluation | sample allocation and result summaries | verification method, coverage, independence, acceptance | add technical skill |
-| Technology insertion | economic/capacity scenarios | maturity, integration, qualification, cutover, rollback | add aerospace skill |
+| Statistical quality control | limits, capability, yield, sampling probabilities | rational subgrouping, stability, reaction | implemented in quality/IE playbooks, skill, and calculator pack |
+| Measurement systems | variance components and study ratios | study design, measurement fitness, action | implemented in MSA guidance and crossed Gage R&R calculation |
+| Design of experiments | effects, interactions, ANOVA | experimental design, randomization, causal limits | implemented for one-way ANOVA and complete two-level factorial effects |
+| Production flow | takt, capacity, OEE, Little's Law, RTY, queues | boundary, constraint, release policy, countermeasures | implemented in production/IE guidance and calculator pack |
+| Forecast and inventory | forecast/error, EOQ, safety stock, reorder point, MRP netting | demand regime, service policy, effectivity, overrides | implemented in materials guidance and calculator pack |
+| Schedule controls | network dates, float, PERT, reproducible simulation | logic quality, status credibility, recovery authority | implemented in program guidance and calculator pack |
+| Reliability | life distributions, availability, system reliability | failure definition, censoring, model fitness, maintenance strategy | implemented in reliability guidance and calculator pack |
+| Engineering economics | cash-flow equivalence, NPV, IRR, break-even, life-cycle cost | alternatives, estimate basis, uncertainty, approval | implemented in program guidance and calculator pack |
+| Operations research | typed optimization and simulation | formulation, constraints, objective, validation, sensitivity | decision-framing skill plus four bounded calculator models implemented |
+| Human factors/work design | work-sample and approved ergonomic equations | observation, task boundary, safety/medical authority | judgment skill implemented; external equations intentionally authority-bound |
+| Facilities/material handling | space, flow, weighted location and capacity arithmetic | layout generation, hazards, expansion, implementation | judgment skill plus bounded center-of-gravity calculation implemented |
+| Producibility/DFMA | comparative counts, time/cost/yield scenarios | design critique, requirement trade, engineering authority | aerospace playbook and skill implemented; uses existing calculators |
+| Materials/process qualification | study summaries and capability evidence | process physics, qualification plan, acceptance | aerospace playbook and skill implemented; approval remains external |
+| Test and evaluation | sample allocation and result summaries | verification method, coverage, independence, acceptance | technical playbook and skill implemented; acceptance remains external |
+| Technology insertion | economic/capacity scenarios | maturity, integration, qualification, cutover, rollback | aerospace playbook and skill implemented; uses existing calculators |
 
 ## Known exclusions
 

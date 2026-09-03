@@ -1,4 +1,4 @@
-# Operations-research modeling
+# Operations-research decision framing
 
 ## Question answered
 
@@ -31,4 +31,6 @@ Stop when the objective hides a safety, quality, workforce, customer, or regulat
 
 Decision statement, typed model, evidence-linked parameters, dimensional check, solver/method version, feasibility result, baseline comparison, sensitivity and scenario results, omitted effects, recommendation, dissent, and human decision.
 
-Public orientation: [NCEES PE Industrial and Systems specification](https://ncees.org/wp-content/uploads/PE-Ind-Oct-2020_with-codes-and-standards.pdf) and [Purdue MS Industrial Engineering](https://engineering.purdue.edu/IE/academics/graduate/degree_programs/online).
+For the implemented small-model calculators, use [bounded operations-research calculations](24-transparent-operations-research.md). Richer models remain governed by this framing and validation contract.
+
+Public orientation: [NCEES PE Industrial and Systems specification](https://ncees.org/wp-content/uploads/2022/09/PE-Ind-Oct-2020_with-codes-and-standards.pdf) and [Purdue MS Industrial Engineering](https://engineering.purdue.edu/IE/academics/graduate/degree_programs/online).

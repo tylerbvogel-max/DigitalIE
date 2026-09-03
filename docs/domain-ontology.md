@@ -18,7 +18,7 @@ These are separate entities. A claim may be rejected; rejected claims remain par
 
 ## Invariants
 
-- `root_cause.status = verified` requires linked evidence, a validation result, and human approval.
+- `hypothesis.status = verified` represents a verified cause and requires linked evidence, a validation result, and human approval.
 - An observation may cite a source but may not be promoted automatically.
 - An analysis records inputs, filters, method, parameters, and output version.
 - A control limit and a specification limit are distinct concepts.

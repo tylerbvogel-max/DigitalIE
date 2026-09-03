@@ -11,5 +11,9 @@ An improvement case moves through controlled states. A chat or report is a view 
 | Action in progress | Approved action has owner, due date, and expected mechanism | Implementation evidence is complete |
 | Effectiveness review | Measurement window and success criteria are active | Result and residual risk are decided |
 | Closed | Required records, decisions, actions, and result are complete | Reopen only on recurrence, new evidence, or failed effectiveness |
+| Superseded | A better-scoped case replaces this case | Replacement case and rationale are linked |
+| Reopened | Recurrence, new evidence, or failed effectiveness invalidates closure | Case returns to the applicable active state with the new trigger recorded |
 
-`Superseded` preserves a case replaced by a better-scoped case. `Reopened` preserves the original closure and identifies the new trigger. State changes require actor, timestamp, rationale, and source references.
+`Superseded` and `Reopened` preserve rather than overwrite prior history. State changes require actor, timestamp, rationale, and source references.
+
+These are the canonical `case.status` values, serialized in lowercase kebab case. State names inside individual process-contract tables are route-specific phases; they do not replace or silently mutate the case lifecycle.

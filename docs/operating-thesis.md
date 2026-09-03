@@ -11,6 +11,8 @@ DigitalIE exists to improve the quality and speed of manufacturing decisions wit
 - Which constraint governs recovery, and which tradeoffs require escalation?
 - What evidence distinguishes a plausible cause from a verified cause?
 - Which data product shortens a defined decision without obscuring provenance?
+- What evidence is still missing before a design, transfer, or technology is ready for controlled production?
+- Which repeated task belongs in process improvement, deterministic software, AI assistance, or an agentic workflow?
 
 ## Value hypothesis
 

@@ -14,6 +14,6 @@ Every durable entry has one authority class.
 
 AI-generated text is a draft, not a content class. Its claims must resolve to one of the classes above.
 
-## Minimum metadata
+## Target metadata contract
 
-Every governed entry identifies `id`, `type`, `status`, `scope`, `source_class`, `owner`, `review_by`, `supersedes`, and related entries. Missing metadata is an intake defect, not an invitation to infer authority.
+Once metadata enforcement is enabled for a content class, each governed entry identifies `id`, `type`, `status`, `scope`, `source_class`, `owner`, `review_by`, `supersedes`, and related entries. Until the staged rollout is complete, directory placement and the content-class rules remain authoritative; missing metadata must be reported rather than inferred.

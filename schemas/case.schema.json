@@ -1,14 +1,14 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://digitalie.dev/schemas/case.schema.json",
+  "$id": "https://digitalie.local/schemas/case.schema.json",
   "title": "Improvement Case",
   "type": "object",
   "required": ["id", "title", "status", "process", "created_at"],
   "properties": {
     "id": {"type": "string", "pattern": "^DIE-[0-9]{4}-[0-9]{4}$"},
     "title": {"type": "string", "minLength": 8},
-    "status": {"enum": ["triage", "containment", "investigate", "improve", "control", "closed"]},
-    "process": {"type": "string"},
+    "status": {"enum": ["intake", "evidence-gathering", "contained-analysis", "decision-pending", "action-in-progress", "effectiveness-review", "closed", "superseded", "reopened"]},
+    "process": {"enum": ["commitment-to-ready-work", "build-to-acceptance", "exception-to-disposition", "change-to-effective-control", "constraint-to-recovery", "asset-loss-to-reliability-action", "decision-to-data-product", "intent-to-verified-capability", "design-to-production-capability"]},
     "problem_statement": {"type": "string"},
     "ctqs": {"type": "array", "items": {"type": "string"}},
     "created_at": {"type": "string", "format": "date-time"},

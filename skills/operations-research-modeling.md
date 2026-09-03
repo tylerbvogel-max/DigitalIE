@@ -1,4 +1,4 @@
-# Operations-research modeling
+# Operations-research decision framing
 
 **Use when:** allocation, sequencing, routing, capacity, inventory, or layout alternatives interact through explicit constraints.
 
@@ -6,4 +6,4 @@
 
 **Stop when:** the objective conceals a controlled trade, inputs mix boundaries, an operational constraint is missing, or a solver result is being treated as authority.
 
-**Output:** problem formulation, model/evidence map, calculation receipt, feasibility and sensitivity results, omissions, operational interpretation, and approval packet. See [the playbook](../playbooks/industrial-engineering/20-operations-research-modeling.md).
+**Output:** problem formulation, model/evidence map, method-selection rationale, feasibility and sensitivity plan, omissions, operational interpretation, and approval path. See [the playbook](../playbooks/industrial-engineering/20-operations-research-modeling.md). Use the bounded-calculation skill only when the problem fits one of its implemented models.

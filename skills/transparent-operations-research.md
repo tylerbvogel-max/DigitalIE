@@ -1,4 +1,4 @@
-# Transparent operations research
+# Bounded operations-research calculations
 
 **Use when:** a bounded location, common-scale scoring, one-to-one assignment, or simple sequencing decision benefits from an inspectable mathematical model.
 
@@ -6,4 +6,4 @@
 
 **Stop when:** unlike measurements have not been normalized; criteria double count; physical or precedence constraints are missing; assignment exceeds the bounded implementation; sequencing includes material constraints, setups, arrivals, or multiple machines not represented; or optimization is being confused with authorization.
 
-**Output:** model contract, source evidence, calculation receipt, optimum or ranking, sensitivity, omitted constraints, feasibility determination, and signed human decision. See [the operations-research playbook](../playbooks/industrial-engineering/24-transparent-operations-research.md).
+**Output:** model contract, source evidence, calculation receipt, optimum or ranking, sensitivity, omitted constraints, feasibility determination, and human decision request. See [the calculation playbook](../playbooks/industrial-engineering/24-transparent-operations-research.md) and use [operations-research decision framing](operations-research-modeling.md) for method selection and validation.

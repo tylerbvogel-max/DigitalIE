@@ -4,7 +4,7 @@
 
 ## Decision
 
-Use PostgreSQL as the production canonical store. Use JSON Schema for interchange and fixture validation. Markdown and PDFs are generated views.
+Use PostgreSQL as the future production canonical store for improvement cases, evidence, decisions, and audit events. Use JSON Schema for interchange and fixture validation. Case reports in Markdown or PDF are generated views. The clean-room guidance corpus remains Markdown-canonical until a separate corpus-storage decision supersedes it.
 
 ## Rationale
 
@@ -12,4 +12,4 @@ Improvement work requires relationships, provenance, concurrency, immutable audi
 
 ## Consequence
 
-The local fixture/test harness remains dependency-free. A future persistence implementation maps this model to PostgreSQL rather than treating files as authoritative.
+The local fixture/test harness remains dependency-free. A future case-persistence implementation maps domain records to PostgreSQL rather than treating fixture files or generated case reports as authoritative.

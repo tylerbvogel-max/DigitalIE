@@ -16,4 +16,4 @@ An agent follows a process case, gathers evidence, applies playbooks, and prepar
 
 All agents use [the authority matrix](../authority/decision-rights.md). Functional profiles are specialist critics: they challenge the process agent at a defined gate rather than becoming a siloed workflow owner.
 
-Agent changes must be exercised against [synthetic process-agent evaluations](../evals/process-agents/README.md). Passing means correct routing, evidence discipline, critic selection, and authority restraint; polished prose is not a pass condition.
+Before an agent card is treated as release-ready, exercise it against [synthetic process-agent evaluations](../evals/process-agents/README.md), including normal, missing-data, and authority-pressure cases. Passing means correct routing, evidence discipline, critic selection, and authority restraint; polished prose is not a pass condition. Cards without that coverage remain design references.

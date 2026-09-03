@@ -24,18 +24,18 @@ Choose the method from the problem shape.
 | Need an estimate, standard error, or confidence interval | [Estimation and confidence intervals](17-estimation-and-confidence-intervals.md) | Treating confidence as certainty or standard deviation as standard error |
 | Need to test or compare means, proportions, or categories | [Hypothesis tests and comparisons](18-hypothesis-tests-and-comparisons.md) | P-value as effect size, causality, or product acceptance |
 | Need correlation, regression, model significance, or residual analysis | [Correlation and regression](19-correlation-and-regression.md) | Correlation as causality or R² as model validity |
-| Resources, routes, sequences, or policies interact through constraints | [Operations-research modeling](20-operations-research-modeling.md) | An optimum mistaken for operational truth |
+| Resources, routes, sequences, or policies interact through constraints | [Operations-research decision framing](20-operations-research-modeling.md) | An optimum mistaken for operational truth |
 | Human capability or station design affects safety, quality, or flow | [Human factors, ergonomics, and work measurement](21-human-factors-ergonomics-and-work-measurement.md) | Blaming a person for a system-design problem |
 | Equipment, material, people, and support flow require a physical arrangement | [Facility layout and material handling](22-facility-layout-and-material-handling.md) | A flow score that hides safety or control constraints |
 | Need deterministic pace, OEE, flow, queue, yield, or learning arithmetic | [Production and flow calculations](23-production-flow-calculations.md) | A narrow model treated as production entitlement |
-| Need a transparent location, scoring, assignment, or dispatch model | [Transparent operations research](24-transparent-operations-research.md) | An optimum for an incomplete model |
+| Need an implemented location, scoring, assignment, or dispatch calculation | [Bounded operations-research calculations](24-transparent-operations-research.md) | An optimum for an incomplete model |
 
-Each playbook ends with a next action, owner, and measure.
+Use each playbook to produce a next action, owner, and measure; reference-heavy calculation playbooks may end with source boundaries instead of repeating that instruction.
 
 ## Statistical calculation standard
 
 For a material calculation, preserve the evidence dataset and report population/estimand, sampling unit, operational definition, units, filters/missingness, study design, selected equation, substituted values, unrounded result, software/function/version, assumptions/diagnostics, uncertainty/effect, and decision boundary. Use the [statistical analysis record](../../templates/statistical-analysis-record.md).
 
-The dependency-free [calculation kernel](../../src/digital_ie/statistics.py) implements and regression-tests documented descriptive, discrete-probability, t-statistic, Welch comparison, chi-square, runs, ANOVA, correlation, and simple-regression equations. It verifies arithmetic only; it cannot establish measurement fitness, sampling validity, model assumptions, causality, specification conformance, or decision authority.
+The dependency-free [calculation registry](../../src/digital_ie/calculator.py) exposes versioned statistics, quality, production, supply, operations-research, program-control, reliability, and economics methods through one receipt contract. Domain modules keep their equations readable and independently tested. The kernel verifies arithmetic only; it cannot establish measurement fitness, sampling validity, model assumptions, causality, specification conformance, or decision authority.
 
 Primary orientation reference: [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/). Local approved procedures and qualified statistical/domain review govern consequential applications.

@@ -1,8 +1,10 @@
-# Transparent operations research
+# Bounded operations-research calculations
 
 ## Question answered
 
 What result follows from a small, fully declared location, scoring, assignment, or sequencing model—and what operational facts remain outside that model?
+
+Use [operations-research decision framing](20-operations-research-modeling.md) before selecting or interpreting one of these deliberately narrow implementations.
 
 ## Facility center of gravity
 

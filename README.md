@@ -31,6 +31,7 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - Materials/supply chain: demand, forecasting, inventory policy, MRP integrity/netting, shortages, supplier flow, and logistics.
 - Maintenance/reliability: asset/work management, observed reliability, availability, life models, system reliability, and demonstration planning.
 - Technical management: requirements, configuration, interfaces, technical risk/data, decision analysis, and test/evaluation strategy.
+- Digital operations/data: decision products, metric contracts, lineage, integration, dashboards, AI support, and data governance.
 - AI-native engineering: skills, context engineering, MCP portals, agent-ready repositories, agentic review/security, parallel orchestration, software factories, and evaluation.
 - Shared tools: problem framing, evidence standards, experiment design, and reference-versus-reality questioning.
 
@@ -47,6 +48,7 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - `templates/` — reusable field guides and gap records.
 - `docs/` — supporting architecture, ontology, integration contracts, and decisions.
 - `profiles/` and `skills/` — concise harness-agnostic agent behavior cards.
-- `schemas/`, `mcp/`, `adapters/`, `fixtures/`, `evals/` — optional future automation foundation.
+- `schemas/`, `fixtures/`, and `evals/` — conformance contracts and synthetic verification material.
+- `mcp/` and `adapters/` — the implemented calculation portal plus future case-management and source-adapter boundaries.
 
 The local [Calculation MCP](mcp/README.md) is implemented and requires no database. Case-management persistence, source adapters, and most evaluation material remain future automation; none is required to use the human-readable corpus.

@@ -6,10 +6,10 @@ Corpus health is conformance, not a prose popularity score.
 
 - Internal links resolve.
 - Indexed entries exist and unindexed operational entries are reported.
-- Governed entries have required metadata.
-- IDs and titles are unique.
+- Governed entries in metadata-enforced classes satisfy their schema; unenforced classes are reported as rollout debt.
+- IDs are globally unique. Titles are unique within a content class; a playbook and its skill projection may deliberately share a title.
 - Process contracts define trigger, states, evidence, decision gates, outputs, metrics, and handoffs.
-- Agent cards define required evidence, allowed actions, prohibited decisions, critics, escalation, output, and evaluation fixtures.
+- Agent cards define required evidence, allowed actions, prohibited decisions, critics, escalation, and output. Release-ready cards link normal, missing-data, and authority-pressure evaluations.
 - References identify source, version/date, scope, review date, and supersession status.
 - Superseded entries are not presented as current.
 - Examples and fixtures are synthetic and marked as such.

@@ -20,4 +20,4 @@ Stop when an alternative lacks safety/facilities review, violates segregation or
 
 Demand/mix scenarios, current-state evidence, relationship and from-to models, space/capacity requirements, alternatives, calculation receipts, safety/quality/maintenance constraints, sensitivity, phased move and validation plan, owner, and approval.
 
-Public orientation: [NCEES PE Industrial and Systems specification](https://ncees.org/wp-content/uploads/PE-Ind-Oct-2020_with-codes-and-standards.pdf) and [Cranfield Aerospace Manufacturing MSc](https://www.cranfield.ac.uk/courses/taught/aerospace-manufacturing).
+Public orientation: [NCEES PE Industrial and Systems specification](https://ncees.org/wp-content/uploads/2022/09/PE-Ind-Oct-2020_with-codes-and-standards.pdf) and [Cranfield Aerospace Manufacturing MSc](https://www.cranfield.ac.uk/courses/taught/aerospace-manufacturing).

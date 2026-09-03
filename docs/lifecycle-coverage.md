@@ -15,8 +15,8 @@ This matrix prevents corpus growth from following department boundaries or autho
 ## Current crosscutting gaps
 
 - Bid-to-manufacturing requirement flow and industrial-cost assumptions
-- Human factors, ergonomics, and workforce qualification at system level
-- Facility, environmental, EHS, and emergency-operating interfaces
+- System-level integration of human factors, ergonomics, and workforce qualification across process handoffs
+- Integration of facility decisions with environmental, EHS, and emergency-operating authorities
 - Product support, repair, overhaul, service data, and end-of-life configuration
 - Counterfeit-part avoidance and deeper supply-chain assurance
 - Cyber-physical manufacturing security and operational-technology change control
