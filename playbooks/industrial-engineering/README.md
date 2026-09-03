@@ -31,6 +31,6 @@ Each playbook ends with a next action, owner, and measure.
 
 For a material calculation, preserve the evidence dataset and report population/estimand, sampling unit, operational definition, units, filters/missingness, study design, selected equation, substituted values, unrounded result, software/function/version, assumptions/diagnostics, uncertainty/effect, and decision boundary. Use the [statistical analysis record](../../templates/statistical-analysis-record.md).
 
-The dependency-free [calculation kernel](../../src/digital_ie/statistics.py) implements and regression-tests the documented descriptive, t-statistic, Welch comparison, chi-square, ANOVA, correlation, and simple-regression equations. It verifies arithmetic only; it cannot establish measurement fitness, sampling validity, model assumptions, causality, specification conformance, or decision authority.
+The dependency-free [calculation kernel](../../src/digital_ie/statistics.py) implements and regression-tests documented descriptive, discrete-probability, t-statistic, Welch comparison, chi-square, runs, ANOVA, correlation, and simple-regression equations. It verifies arithmetic only; it cannot establish measurement fitness, sampling validity, model assumptions, causality, specification conformance, or decision authority.
 
 Primary orientation reference: [NIST/SEMATECH e-Handbook of Statistical Methods](https://www.itl.nist.gov/div898/handbook/). Local approved procedures and qualified statistical/domain review govern consequential applications.

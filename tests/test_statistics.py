@@ -2,11 +2,16 @@ import math
 import unittest
 
 from src.digital_ie.statistics import (
+    binomial_probability,
+    chi_square_goodness_of_fit,
     chi_square_independence,
+    hypergeometric_probability,
     mean,
     one_proportion_z_statistic,
     one_way_anova,
     paired_t_statistic,
+    poisson_probability,
+    runs_test_z,
     sample_standard_deviation,
     sample_variance,
     simple_linear_regression,
@@ -14,6 +19,7 @@ from src.digital_ie.statistics import (
     two_proportion_z_statistic,
     welch_t_statistic,
     wilson_proportion_interval,
+    weighted_mean,
 )
 
 
@@ -24,6 +30,21 @@ class DescriptiveStatisticsTests(unittest.TestCase):
         self.assertEqual(sample_variance(values), 2.0)
         self.assertAlmostEqual(sample_standard_deviation(values), math.sqrt(2))
         self.assertAlmostEqual(standard_error_mean(values), math.sqrt(2) / math.sqrt(6))
+
+    def test_weighted_mean_requires_real_weights(self):
+        self.assertEqual(weighted_mean([10, 20, 30], [1, 2, 1]), 20.0)
+        with self.assertRaises(ValueError):
+            weighted_mean([10, 20], [1])
+
+
+class ProbabilityTests(unittest.TestCase):
+    def test_discrete_probability_examples(self):
+        self.assertAlmostEqual(binomial_probability(0, 10, 0.02), 0.98**10)
+        self.assertAlmostEqual(hypergeometric_probability(1, 5, 3, 20), 0.4605263157894737)
+        self.assertAlmostEqual(poisson_probability(2, 3), math.exp(-3) * 9 / 2)
+
+    def test_impossible_hypergeometric_outcome_is_zero(self):
+        self.assertEqual(hypergeometric_probability(4, 5, 3, 20), 0.0)
 
 
 class ComparativeStatisticsTests(unittest.TestCase):
@@ -47,6 +68,16 @@ class ComparativeStatisticsTests(unittest.TestCase):
         statistic, degrees_freedom = chi_square_independence([[18, 2], [12, 8]])
         self.assertAlmostEqual(statistic, 4.8)
         self.assertEqual(degrees_freedom, 1)
+
+    def test_goodness_of_fit_and_runs_examples(self):
+        statistic, degrees_freedom = chi_square_goodness_of_fit(
+            [50, 30, 20], [0.40, 0.35, 0.25]
+        )
+        self.assertAlmostEqual(statistic, 4.214285714285714)
+        self.assertEqual(degrees_freedom, 2)
+        self.assertEqual(runs_test_z(3, 3, 4), 0.0)
+        with self.assertRaises(ValueError):
+            runs_test_z(3, 3, 7)
 
     def test_documented_anova_example(self):
         result = one_way_anova([[8, 9, 10], [11, 12, 13], [9, 10, 11]])

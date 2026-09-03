@@ -10,6 +10,21 @@ Record population of interest, sampling/collection method, unit of analysis, ope
 
 Let observations be \(x_1,\ldots,x_n\).
 
+## Data type and collection design
+
+Classify the response before selecting arithmetic or a graph:
+
+| Data structure | Examples | Valid treatment |
+|---|---|---|
+| Nominal category | defect family, supplier, machine ID | counts, proportions, mode; no numeric ordering |
+| Ordinal category | severity band, inspection rating | ordered counts/quantiles; spacing between levels is not assumed equal |
+| Interval measure | temperature in °C | differences are meaningful; ratios to the arbitrary zero are not |
+| Ratio measure | duration, mass, length, count | differences and ratios are meaningful when the measurement model is valid |
+
+Also distinguish discrete counts from continuous measurements and preserve censoring, rounding, detection limits, and repeated measurements. Numeric codes assigned to categories do not turn them into quantitative measurements.
+
+Describe how observations entered the dataset. A simple random sample gives eligible units a defined selection probability; stratified sampling deliberately represents important strata; cluster sampling selects natural groups and ordinarily requires cluster-aware analysis. Convenience samples, dashboard extracts, and completed units may systematically omit work in queue, scrap, rework, or inaccessible conditions. Random sampling supports population inference; random assignment supports causal attribution. One does not substitute for the other.
+
 ## Frequency distribution
 
 For category or bin \(j\):
@@ -19,6 +34,8 @@ f_j = \text{count in }j, \qquad p_j = \frac{f_j}{n}, \qquad F_j = \sum_{k\le j} 
 \]
 
 Use mutually exclusive, collectively exhaustive categories. For histograms, disclose bin boundaries and keep them constant across comparisons. Counts answer volume; relative frequency answers composition; a rate requires an exposure denominator.
+
+Example for defect counts \(A=12\), \(B=5\), \(C=3\), with \(n=20\): relative frequencies are \(0.60,0.25,0.15\), and ordered cumulative relative frequencies are \(0.60,0.85,1.00\). Ordering categories for a Pareto view is an analytical display choice, not an ordinal measurement scale.
 
 ## Central tendency
 
@@ -31,6 +48,14 @@ Use mutually exclusive, collectively exhaustive categories. For histograms, disc
 \]
 
 The median is the ordered middle value, or the mean of the two middle values for even \(n\). The mode is the most frequent value/category. Use the median with strong skew or outliers; use a weighted mean only when weights have an explicit operational meaning.
+
+For a symmetric trim removing \(g\) observations from each tail after ordering,
+
+\[
+\bar{x}_{trim}=\frac{1}{n-2g}\sum_{i=g+1}^{n-g}x_{(i)}
+\]
+
+State \(g\) or the trim percentage. A trimmed mean is a predeclared robustness summary, not permission to hide inconvenient observations.
 
 ## Dispersion
 

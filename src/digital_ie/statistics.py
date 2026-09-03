@@ -7,7 +7,7 @@ distributional assumptions, causal interpretation, or decision authority.
 from __future__ import annotations
 
 from dataclasses import dataclass
-from math import fsum, sqrt
+from math import comb, exp, factorial, fsum, sqrt
 from typing import Sequence
 
 
@@ -45,6 +45,18 @@ def mean(values: Sequence[float]) -> float:
     return fsum(values) / len(values)
 
 
+def weighted_mean(values: Sequence[float], weights: Sequence[float]) -> float:
+    if len(values) != len(weights):
+        raise ValueError("weighted mean values and weights must have equal length")
+    _require_size(values, 1, "weighted mean")
+    if any(weight < 0 for weight in weights):
+        raise ValueError("weighted mean weights cannot be negative")
+    total_weight = fsum(weights)
+    if total_weight <= 0:
+        raise ValueError("weighted mean requires positive total weight")
+    return fsum(value * weight for value, weight in zip(values, weights)) / total_weight
+
+
 def sample_variance(values: Sequence[float]) -> float:
     _require_size(values, 2, "sample variance")
     center = mean(values)
@@ -57,6 +69,36 @@ def sample_standard_deviation(values: Sequence[float]) -> float:
 
 def standard_error_mean(values: Sequence[float]) -> float:
     return sample_standard_deviation(values) / sqrt(len(values))
+
+
+def binomial_probability(successes: int, trials: int, probability: float) -> float:
+    if trials < 0 or successes < 0 or successes > trials or not 0 <= probability <= 1:
+        raise ValueError("binomial inputs require 0 <= successes <= trials and 0 <= p <= 1")
+    return comb(trials, successes) * probability**successes * (1 - probability) ** (
+        trials - successes
+    )
+
+
+def hypergeometric_probability(
+    successes: int, draws: int, population_successes: int, population_size: int
+) -> float:
+    if population_size <= 0 or not 0 <= population_successes <= population_size:
+        raise ValueError("hypergeometric population counts are invalid")
+    if draws < 0 or draws > population_size or successes < 0 or successes > draws:
+        raise ValueError("hypergeometric sample counts are invalid")
+    if successes > population_successes or draws - successes > population_size - population_successes:
+        return 0.0
+    return (
+        comb(population_successes, successes)
+        * comb(population_size - population_successes, draws - successes)
+        / comb(population_size, draws)
+    )
+
+
+def poisson_probability(events: int, expected_events: float) -> float:
+    if events < 0 or expected_events < 0:
+        raise ValueError("Poisson inputs require nonnegative events and expectation")
+    return exp(-expected_events) * expected_events**events / factorial(events)
 
 
 def one_sample_z_statistic(sample_mean: float, null_mean: float, sigma: float, n: int) -> float:
@@ -145,6 +187,48 @@ def chi_square_independence(observed: Sequence[Sequence[int]]) -> tuple[float, i
             expected = row_totals[row_index] * column_totals[column_index] / total
             statistic += (actual - expected) ** 2 / expected
     return statistic, (len(observed) - 1) * (column_count - 1)
+
+
+def chi_square_goodness_of_fit(
+    observed: Sequence[int], expected_probabilities: Sequence[float], fitted_parameters: int = 0
+) -> tuple[float, int]:
+    if len(observed) != len(expected_probabilities):
+        raise ValueError("goodness-of-fit counts and probabilities must have equal length")
+    _require_size(observed, 2, "chi-square goodness of fit")
+    if any(count < 0 for count in observed):
+        raise ValueError("goodness-of-fit counts cannot be negative")
+    if any(probability <= 0 for probability in expected_probabilities):
+        raise ValueError("goodness-of-fit probabilities must be positive")
+    if not abs(fsum(expected_probabilities) - 1.0) <= 1e-12:
+        raise ValueError("goodness-of-fit probabilities must sum to one")
+    if fitted_parameters < 0 or fitted_parameters >= len(observed) - 1:
+        raise ValueError("fitted parameters leave no positive degrees of freedom")
+    total = fsum(observed)
+    if total <= 0:
+        raise ValueError("goodness-of-fit requires a positive total count")
+    expected = tuple(total * probability for probability in expected_probabilities)
+    statistic = fsum((actual - target) ** 2 / target for actual, target in zip(observed, expected))
+    return statistic, len(observed) - 1 - fitted_parameters
+
+
+def runs_test_z(first_count: int, second_count: int, observed_runs: int) -> float:
+    if first_count <= 0 or second_count <= 0:
+        raise ValueError("runs test requires positive counts of both outcomes")
+    total = first_count + second_count
+    maximum_runs = 2 * min(first_count, second_count) + int(first_count != second_count)
+    if observed_runs < 2 or observed_runs > maximum_runs:
+        raise ValueError("observed run count is impossible for the outcome counts")
+    expected_runs = 1 + 2 * first_count * second_count / total
+    variance_runs = (
+        2
+        * first_count
+        * second_count
+        * (2 * first_count * second_count - first_count - second_count)
+        / (total**2 * (total - 1))
+    )
+    if variance_runs <= 0:
+        raise ValueError("runs test normal approximation requires positive variance")
+    return (observed_runs - expected_runs) / sqrt(variance_runs)
 
 
 def one_way_anova(groups: Sequence[Sequence[float]]) -> AnovaResult:

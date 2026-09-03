@@ -76,6 +76,40 @@ E_{ij}=\frac{(\text{row }i\text{ total})(\text{column }j\text{ total})}{N}
 
 Example for outcome by two fictional process settings, \(O=[[18,2],[12,8]]\). Expected counts are \([[15,5],[15,5]]\), so \(\chi^2=4.8\), \(df=1\), and \(p\approx0.028\). This is evidence of association under the sampling model, not proof the setting caused the outcome.
 
+For goodness of fit to declared category probabilities \(p_j\), use \(E_j=np_j\):
+
+\[
+\chi^2=\sum_{j=1}^{k}\frac{(O_j-E_j)^2}{E_j}, \qquad df=k-1-m
+\]
+
+where \(m\) is the number of distribution parameters estimated from these observations. Categories and probabilities must be declared independently of the observed departures. Example: observed counts \([50,30,20]\) against proportions \([0.40,0.35,0.25]\) give expected \([40,35,25]\), \(\chi^2=4.214\), and \(df=2\) when no parameters were fitted.
+
+Chi-square approximations require adequate expected counts. When sparse, use a justified exact/Monte Carlo method or combine categories only when the combined definition is operationally meaningful and declared without chasing significance.
+
+## Comparing variation
+
+The classical two-sample variance statistic is:
+
+\[
+F=\frac{s_1^2}{s_2^2}, \qquad df=(n_1-1,n_2-1)
+\]
+
+Its inference is highly sensitive to non-normality. Do not use an F test as an automatic gate for choosing pooled versus Welch t procedures. Start with raw distributions and process order; for a formal spread comparison, preselect a method such as Brown–Forsythe/Levene that fits the design, and report a variance or scale ratio with uncertainty. For process control, a suitable dispersion chart may answer the operational question better than a one-time variance test.
+
+## Runs test for sequence randomness
+
+For a binary sequence with \(n_1\) outcomes of one type, \(n_2\) of the other, and observed run count \(R\):
+
+\[
+E[R]=1+\frac{2n_1n_2}{n_1+n_2}
+\]
+
+\[
+Var(R)=\frac{2n_1n_2(2n_1n_2-n_1-n_2)}{(n_1+n_2)^2(n_1+n_2-1)}, \qquad z=\frac{R-E[R]}{\sqrt{Var(R)}}
+\]
+
+A run is a maximal consecutive block of the same outcome. For sequence `A A B B A B`, \(n_1=n_2=3\), \(R=4\), \(E[R]=4\), and \(z=0\). Declare how ties are handled when converting continuous data to signs around a target or median. A runs test can flag nonrandom order; it does not identify the cause and should not replace a control chart when chart assumptions are met.
+
 ## One-way analysis of variance
 
 For \(k\) groups with group means \(\bar{x}_j\), sizes \(n_j\), and grand mean \(\bar{x}\):

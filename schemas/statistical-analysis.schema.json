@@ -10,11 +10,17 @@
     "method",
     "population_or_estimand",
     "sampling_unit",
+    "operational_definition",
+    "units",
+    "data_structure",
+    "study_design",
+    "sampling_design",
     "input_evidence_ids",
     "equations",
     "results",
     "assumptions",
-    "interpretation"
+    "interpretation",
+    "authority_boundary"
   ],
   "properties": {
     "id": { "type": "string", "minLength": 1 },
@@ -22,6 +28,14 @@
     "method": { "type": "string", "minLength": 1 },
     "population_or_estimand": { "type": "string", "minLength": 1 },
     "sampling_unit": { "type": "string", "minLength": 1 },
+    "operational_definition": { "type": "string", "minLength": 1 },
+    "units": { "type": "string", "minLength": 1 },
+    "data_structure": {
+      "type": "string",
+      "enum": ["nominal", "ordinal", "interval", "ratio", "mixed"]
+    },
+    "study_design": { "type": "string", "minLength": 1 },
+    "sampling_design": { "type": "string", "minLength": 1 },
     "input_evidence_ids": {
       "type": "array",
       "items": { "type": "string" },
@@ -58,6 +72,7 @@
     "diagnostics": { "type": "array", "items": { "type": "string" } },
     "interpretation": { "type": "string", "minLength": 1 },
     "not_established": { "type": "array", "items": { "type": "string" } },
-    "reviewed_by": { "type": ["string", "null"] }
+    "reviewed_by": { "type": ["string", "null"] },
+    "authority_boundary": { "type": "string", "minLength": 1 }
   }
 }

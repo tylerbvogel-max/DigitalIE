@@ -4,10 +4,10 @@
 |---|---|
 | Case, decision, and analysis ID | |
 | Population/estimand and sampling unit | |
-| Operational definition and units | |
+| Operational definition, data structure/measurement scale, and units | |
 | Immutable input evidence and extraction time | |
 | Filters, exclusions, missing-data treatment, and strata | |
-| Sampling/assignment, independence, and time order | |
+| Observational/experimental design; sampling/assignment, independence, replacement, clustering, and time order | |
 | Measurement-system suitability | |
 | Method and why selected | |
 | Null/alternative, alpha, and practical threshold where applicable | |
