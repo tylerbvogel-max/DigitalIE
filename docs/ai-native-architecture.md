@@ -2,6 +2,8 @@
 
 This architecture keeps the model replaceable, tools bounded, context attributable, and decisions human-governed.
 
+It implements the [AI-native manufacturing program north star](ai-native-program-north-star.md). Architecture choices should be rejected when they transfer reusable platform complexity to application creators or make bypassing the governed path materially easier.
+
 ## System context
 
 ```mermaid

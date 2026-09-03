@@ -2,6 +2,8 @@
 
 AI-native engineering designs work so humans and agents can jointly discover, change, verify, and operate systems without surrendering authority or traceability.
 
+The [AI-native manufacturing program north star](../../docs/ai-native-program-north-star.md) governs design choices across this capability family: make the supported path faster than shadow development while scaling controls with operational consequence.
+
 | Need | Start here |
 |---|---|
 | Package repeatable expert behavior | [Skill engineering](01-skill-engineering.md) |

@@ -15,6 +15,8 @@ It keeps observation, hypothesis, validated cause, corrective action, and effect
 
 Read [the operating thesis](docs/operating-thesis.md) for the outcomes DigitalIE is intended to improve and the authority it does not assume.
 
+For internal AI-enabled application development, use the [AI-native manufacturing program north star](docs/ai-native-program-north-star.md) to guide platform, governance, and adoption decisions.
+
 ## Process and agent views
 
 The playbooks are the capability library. [Processes](processes/README.md) organize that library around work moving through the operation. [Agent cards](agents/README.md) define the evidence, allowed actions, specialist critics, and human decision gates for future agentic use.
