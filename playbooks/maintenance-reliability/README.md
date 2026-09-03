@@ -10,3 +10,4 @@ Reliability protects production capability through asset risk, maintenance work,
 | Turn work into reliable execution | [Maintenance planning and scheduling](04-planning-and-scheduling.md) |
 | Avoid parts-driven downtime | [Spare parts strategy](05-spare-parts-strategy.md) |
 | Find systemic loss mechanisms | [Reliability and downtime analysis](06-reliability-and-downtime-analysis.md) |
+| Quantify life models, availability, system reliability, or demonstration needs | [Reliability engineering calculations](07-reliability-engineering-calculations.md) |

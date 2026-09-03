@@ -24,6 +24,11 @@ Choose the method from the problem shape.
 | Need an estimate, standard error, or confidence interval | [Estimation and confidence intervals](17-estimation-and-confidence-intervals.md) | Treating confidence as certainty or standard deviation as standard error |
 | Need to test or compare means, proportions, or categories | [Hypothesis tests and comparisons](18-hypothesis-tests-and-comparisons.md) | P-value as effect size, causality, or product acceptance |
 | Need correlation, regression, model significance, or residual analysis | [Correlation and regression](19-correlation-and-regression.md) | Correlation as causality or R² as model validity |
+| Resources, routes, sequences, or policies interact through constraints | [Operations-research modeling](20-operations-research-modeling.md) | An optimum mistaken for operational truth |
+| Human capability or station design affects safety, quality, or flow | [Human factors, ergonomics, and work measurement](21-human-factors-ergonomics-and-work-measurement.md) | Blaming a person for a system-design problem |
+| Equipment, material, people, and support flow require a physical arrangement | [Facility layout and material handling](22-facility-layout-and-material-handling.md) | A flow score that hides safety or control constraints |
+| Need deterministic pace, OEE, flow, queue, yield, or learning arithmetic | [Production and flow calculations](23-production-flow-calculations.md) | A narrow model treated as production entitlement |
+| Need a transparent location, scoring, assignment, or dispatch model | [Transparent operations research](24-transparent-operations-research.md) | An optimum for an incomplete model |
 
 Each playbook ends with a next action, owner, and measure.
 

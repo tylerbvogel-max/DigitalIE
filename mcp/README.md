@@ -4,7 +4,7 @@ The MCP exposes domain verbs, never arbitrary SQL or unrestricted plant writes.
 
 ## Implemented calculation portal
 
-The [calculator portal](calculator-portal.yaml) is implemented as a dependency-free local stdio server. Its method registry exposes typed statistical and program EVM calculations backed by readable Python equations—not by model-generated expressions. The EVM family covers performance snapshots, forecast alternatives, period reconciliation, schedule execution indicators, and labor/material variance decomposition. It supports current stateless MCP discovery and legacy initialization for harness compatibility.
+The [calculator portal](calculator-portal.yaml) is implemented as a dependency-free local stdio server. Its 79-method registry exposes typed calculations backed by readable Python equations—not by model-generated expressions. The implemented families cover descriptive statistics and inference, EVM, schedule and cost risk, quality engineering, production flow, forecasting and inventory, bounded operations research, reliability, and engineering economics. It supports current stateless MCP discovery and legacy initialization for harness compatibility.
 
 From the repository root:
 
@@ -26,7 +26,22 @@ The calculation identifier is content-addressed from method version and numeric 
 
 Material quantitative claims should use this portal or another identified validated computation tool. The agent may explain the equation and result, but must not silently replace or alter the returned value.
 
+New calculation families must satisfy the [calculation pack standard](../docs/calculation-pack-standard.md): closed schemas, declared equations and assumptions, auditable intermediates, explicit authority limits, method versions, and independent verification fixtures.
+
 The server deliberately does not evaluate arbitrary expressions, access files or databases, calculate unimplemented p-values, or make acceptance/disposition decisions.
+
+### Implemented families
+
+| Family | Representative methods |
+|---|---|
+| Statistics | distributions, dispersion, probability, confidence intervals, tests, ANOVA, correlation, regression, chi-square |
+| Program controls | EVM snapshots and forecasts, CPM, PERT, seeded schedule/cost simulation |
+| Quality | variable/attribute control charts, capability, yield, crossed Gage R&R, tolerance stack, sampling OC, factorial effects |
+| Production | takt/resource need, line balance, OEE, Little's Law/PCE, RTY, M/M/1 and M/M/c queues, learning curve |
+| Supply | moving average, exponential smoothing, forecast error, EOQ, reorder point, single-item MRP netting |
+| Operations research | facility center of gravity, weighted scoring, bounded assignment, dispatch sequencing |
+| Reliability | observed metrics, availability, exponential/Weibull life models, system reliability, demonstration sizing |
+| Economics | time value, NPV/EAV/IRR, payback, break-even, make-buy, lifecycle cost, sensitivity |
 
 ### Harness configuration shape
 

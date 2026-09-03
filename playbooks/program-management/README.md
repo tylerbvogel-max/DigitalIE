@@ -11,3 +11,5 @@ Program Management coordinates scope, work, decisions, resources, risks, and sta
 | Control scope/baseline changes | [Change control](05-change-control.md) |
 | Recover or communicate a threatened commitment | [Recovery and stakeholder communication](06-recovery-and-stakeholder-communication.md) |
 | Integrate scope, accomplishment, schedule, and cost performance | [Earned value management](07-earned-value-management.md) |
+| Analyze network logic, float, duration uncertainty, or cost risk | [Schedule network and risk analysis](08-schedule-risk-analysis.md) |
+| Compare investments or lifecycle alternatives on a common economic basis | [Engineering economics](09-engineering-economics.md) |

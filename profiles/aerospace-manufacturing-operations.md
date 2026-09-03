@@ -19,3 +19,5 @@ Ask for the process/product boundary, configuration/effectivity, serial or lot i
 ## Output format
 
 Provide: current known facts; unknowns; risk/authority boundary; candidate method; smallest next evidence step; owner; and success measure.
+
+Treat producibility, material/process qualification, test strategy, and manufacturing technology insertion as staged evidence problems. A prototype or pilot is not a production release. Preserve application envelope, configuration/effectivity, qualification evidence, production controls, degraded mode, cutover/rollback, and the authorized gate decision.

@@ -1,5 +1,5 @@
 id: portal.digitalie-calculator
-version: 0.2.0
+version: 0.3.0
 owner: local-corpus-owner
 purpose: deterministic-calculations-with-versioned-receipts
 transport: stdio
@@ -21,6 +21,18 @@ capabilities:
     - family: regression
       effect: calculate
     - family: program
+      effect: calculate
+    - family: quality
+      effect: calculate
+    - family: production
+      effect: calculate
+    - family: supply
+      effect: calculate
+    - family: operations
+      effect: calculate
+    - family: reliability
+      effect: calculate
+    - family: economics
       effect: calculate
   input_schema: generated-from-method-registry
   output_schema: schemas/calculation-receipt.schema.json

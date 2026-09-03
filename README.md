@@ -23,13 +23,14 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 
 ## Current corpus
 
-- Industrial Engineering: triage, Gemba, causal methods, Pareto, SPC, flow/capacity, MSA, FMEA/control, descriptive statistics, probability, inference, comparisons, ANOVA, correlation, and regression.
-- Aerospace manufacturing: quality/conformance, configuration/traceability, readiness, critical-process governance, production control, supplier quality, airworthiness interfaces, change control, and operations data/AI.
-- Quality assurance: quality-system design, acceptance evidence, nonconformance, CAPA/8D, audit, document/record control, supplier quality, and quality metrics.
-- Production management: daily management, schedule execution, constraint control, material/labor readiness, shift handoffs, visual performance, and recovery leadership.
-- Program management: chartering, integrated planning, RAID, governance, change/recovery, and calculation-grade earned value management.
-- Materials/supply chain, maintenance/reliability, and digital operations/data.
-- Technical management: requirements/verification, configuration, interfaces, technical risk, technical data, and formal decision analysis.
+- Industrial Engineering: improvement methods, statistical inference, production/flow calculations, operations research, work design, ergonomics, facilities, and material handling.
+- Aerospace manufacturing: conformance/configuration, readiness, critical processes, producibility, material/process qualification, technology insertion, supplier quality, and airworthiness interfaces.
+- Quality assurance: quality systems and quantitative SPC, capability, Gage R&R, yield, tolerance, sampling, and factorial methods.
+- Production management: daily execution, constraints, readiness, OEE, capacity, queues, line balance, learning, and recovery.
+- Program management: integrated planning, schedule networks/risk simulation, EVM, engineering economics, governance, change, and recovery.
+- Materials/supply chain: demand, forecasting, inventory policy, MRP integrity/netting, shortages, supplier flow, and logistics.
+- Maintenance/reliability: asset/work management, observed reliability, availability, life models, system reliability, and demonstration planning.
+- Technical management: requirements, configuration, interfaces, technical risk/data, decision analysis, and test/evaluation strategy.
 - AI-native engineering: skills, context engineering, MCP portals, agent-ready repositories, agentic review/security, parallel orchestration, software factories, and evaluation.
 - Shared tools: problem framing, evidence standards, experiment design, and reference-versus-reality questioning.
 

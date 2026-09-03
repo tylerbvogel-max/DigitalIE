@@ -36,7 +36,7 @@ flowchart LR
 
 The MVP runs as one application service and PostgreSQL. The MCP is a narrow facade over the domain service, usable from any compatible harness. Source adapters operate read-only and can later be independently deployed for network segmentation.
 
-The calculation kernel is separately usable as a Python library and through a local read-only MCP stdio adapter. It requires no database. Calculation receipts can later be attached to improvement cases by the case service; arithmetic availability does not depend on that future persistence layer.
+The calculation kernel is separately usable as a Python library and through a local read-only MCP stdio adapter. It requires no database. Domain packs follow the [calculation pack standard](calculation-pack-standard.md), while calculation receipts can later be attached to improvement cases by the case service; arithmetic availability does not depend on that future persistence layer.
 
 ## Fitness functions
 

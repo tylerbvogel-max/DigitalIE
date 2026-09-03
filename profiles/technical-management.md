@@ -20,3 +20,5 @@ This profile may structure evidence, identify gaps, analyze alternatives, and ch
 ## Escalate
 
 Conflicting requirements, uncertain effectivity, unowned interfaces, unavailable authoritative data, unverified configuration, safety/airworthiness implications, and any decision outside declared authority.
+
+For test and evaluation, trace each claim to requirement, method, level, representative configuration/environment, measurement capability, acceptance criteria, raw evidence, anomaly path, and authority. Separate developmental learning from evidence used for formal verification or acceptance.

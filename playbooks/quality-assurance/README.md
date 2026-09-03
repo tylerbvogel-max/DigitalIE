@@ -12,5 +12,6 @@ Quality Control detects and contains conditions. Quality Assurance governs the r
 | Controlled information is stale, missing, or ambiguous | [Document and record control](06-document-and-record-control.md) | File storage |
 | External providers affect conformance | [Supplier quality](07-supplier-quality.md) | Procurement scorekeeping |
 | Leadership needs a quality-health view | [Quality metrics and management review](08-quality-metrics-and-management-review.md) | A dashboard of counts |
+| A control chart, capability, yield, Gage R&R, tolerance, OC, or factorial result must be reproducible | [Quantitative quality engineering](09-quantitative-quality-engineering.md) | Arithmetic treated as stability, acceptance, or causality |
 
 Use Industrial Engineering for root-cause methods, MSA, SPC, FMEA, and control plans. QA governs their evidence and closure.

@@ -20,5 +20,8 @@ Correct approved definition → traceable build evidence → controlled process
 | Conformity, certification, or delegated authority is implicated | [Airworthiness interface](07-airworthiness-and-certification-interface.md) | A decision requires authorized engineering, quality, or airworthiness signoff |
 | A design/process/document change is proposed | [Aerospace change control](08-aerospace-change-control.md) | Effectivity, WIP, qualification, or approval impact is unknown |
 | A dashboard/AI recommendation is being proposed | [Operations data and AI](09-operations-data-and-ai.md) | It would direct a controlled disposition or override an authorized role |
+| The design may be difficult to build, inspect, test, or sustain | [Producibility and DFMA](10-producibility-and-dfma.md) | A proposal changes approved product definition or certification basis |
+| A material/process is selected, qualified, transferred, or changed | [Material and process qualification](11-material-and-process-qualification.md) | Applicability, representativeness, or approval is unresolved |
+| New equipment, automation, software, inspection, or process will enter production | [Manufacturing technology insertion](12-manufacturing-technology-insertion.md) | A pilot is being treated as production release |
 
 Public orientation sources: [FAA production approvals](https://www.faa.gov/aircraft/air_cert/production_approvals), [FAA AC 21-43A](https://www.faa.gov/regulations_policies/advisory_circulars/index.cfm/go/document.information/documentid/1028369), and [PRI Nadcap](https://www.p-r-i.org/nadcap/accreditation?lang=en). Actual applicability is determined by the organization’s approvals, contracts, and procedures.

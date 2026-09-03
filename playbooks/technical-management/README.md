@@ -10,5 +10,6 @@ These playbooks connect program intent to controlled product realization. They p
 | A future performance shortfall requires action | [Technical risk](04-technical-risk.md) |
 | An authoritative record is unavailable, stale, or ambiguous | [Technical data management](05-technical-data-management.md) |
 | A consequential alternative requires explicit trade analysis | [Decision analysis](06-decision-analysis.md) |
+| Requirements need a defensible inspection, analysis, demonstration, or test strategy | [Test and evaluation strategy](07-test-and-evaluation-strategy.md) |
 
-The six disciplines operate together: requirements define what must be true; configuration identifies the applicable definition; interfaces connect responsibilities; risk protects future performance; technical data preserves authoritative evidence; decision analysis records why an alternative was selected.
+The disciplines operate together: requirements define what must be true; configuration identifies the applicable definition; interfaces connect responsibilities; risk protects future performance; technical data preserves authoritative evidence; decision analysis records why an alternative was selected; test and evaluation builds the evidence needed to support the claim.

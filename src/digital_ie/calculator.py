@@ -6,13 +6,17 @@ data fitness, interpret causality, or exercise manufacturing decision authority.
 
 from __future__ import annotations
 
-from dataclasses import asdict, dataclass
+from dataclasses import asdict
 from hashlib import sha256
 import json
 from math import fsum, isfinite, sqrt
 from typing import Any, Callable, Mapping
 
 from . import evm, statistics
+from .calculation_contracts import MethodContract
+from .calculator_controls_methods import METHODS as CONTROLS_METHODS
+from .calculator_operations_methods import METHODS as OPERATIONS_METHODS
+from .calculator_quality_methods import METHODS as QUALITY_METHODS
 
 
 METHOD_VERSION = "1.0.0"
@@ -39,32 +43,6 @@ EVM_AUTHORITY_BOUNDARY = (
     "Calculation only; no EVMS compliance determination, baseline change, official EAC, "
     "contract commitment, corrective action, or program approval is made."
 )
-
-
-@dataclass(frozen=True)
-class MethodContract:
-    method_id: str
-    tool_name: str
-    title: str
-    description: str
-    formulas: tuple[str, ...]
-    input_schema: dict[str, Any]
-    compute: Callable[[Mapping[str, Any]], tuple[dict[str, Any], dict[str, Any]]]
-    assumptions_not_established: tuple[str, ...] = COMMON_UNESTABLISHED
-    authority_boundary: str = AUTHORITY_BOUNDARY
-
-    def public_description(self) -> dict[str, Any]:
-        return {
-            "method_id": self.method_id,
-            "tool_name": self.tool_name,
-            "version": METHOD_VERSION,
-            "title": self.title,
-            "description": self.description,
-            "formulas": list(self.formulas),
-            "input_schema": self.input_schema,
-            "assumptions_not_established": list(self.assumptions_not_established),
-            "authority_boundary": self.authority_boundary,
-        }
 
 
 def _array_schema(min_items: int = 1) -> dict[str, Any]:
@@ -386,6 +364,7 @@ def _contract(
         compute,
         assumptions_not_established,
         authority_boundary,
+        METHOD_VERSION,
     )
 
 
@@ -618,7 +597,7 @@ METHODS = (
         assumptions_not_established=EVM_UNESTABLISHED,
         authority_boundary=EVM_AUTHORITY_BOUNDARY,
     ),
-)
+) + QUALITY_METHODS + OPERATIONS_METHODS + CONTROLS_METHODS
 
 METHODS_BY_ID = {method.method_id: method for method in METHODS}
 METHODS_BY_TOOL = {method.tool_name: method for method in METHODS}
@@ -726,7 +705,7 @@ def calculate(method_id: str, arguments: Mapping[str, Any]) -> dict[str, Any]:
     context = dict(arguments.get("context", {}))
     intermediates, results = contract.compute(inputs)
     digest_source = json.dumps(
-        {"method": method_id, "version": METHOD_VERSION, "inputs": inputs},
+        {"method": method_id, "version": contract.version, "inputs": inputs},
         allow_nan=False,
         separators=(",", ":"),
         sort_keys=True,
@@ -738,7 +717,7 @@ def calculate(method_id: str, arguments: Mapping[str, Any]) -> dict[str, Any]:
     return {
         "calculation_id": f"calc-{sha256(digest_source).hexdigest()[:20]}",
         "method": method_id,
-        "method_version": METHOD_VERSION,
+        "method_version": contract.version,
         "formulas": list(contract.formulas),
         "inputs": inputs,
         "context": context,

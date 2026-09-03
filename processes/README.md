@@ -17,3 +17,4 @@ Commitment → ready work → build → verify → release → learn
 | Asset loss or repeat downtime | [Asset loss to reliability action](06-asset-loss-to-reliability-action.md) |
 | Slow, disputed, or poorly informed decision | [Decision to data product](07-decision-to-data-product.md) |
 | Repeated work may benefit from AI or software automation | [Intent to verified AI capability](08-intent-to-verified-capability.md) |
+| A design, transfer, process, or technology must become stable production | [Design to production capability](09-design-to-production-capability.md) |
