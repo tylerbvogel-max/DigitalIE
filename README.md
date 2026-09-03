@@ -27,7 +27,8 @@ The playbooks are the capability library. [Processes](processes/README.md) organ
 - Aerospace manufacturing: quality/conformance, configuration/traceability, readiness, critical-process governance, production control, supplier quality, airworthiness interfaces, change control, and operations data/AI.
 - Quality assurance: quality-system design, acceptance evidence, nonconformance, CAPA/8D, audit, document/record control, supplier quality, and quality metrics.
 - Production management: daily management, schedule execution, constraint control, material/labor readiness, shift handoffs, visual performance, and recovery leadership.
-- Program management, materials/supply chain, maintenance/reliability, and digital operations/data.
+- Program management: chartering, integrated planning, RAID, governance, change/recovery, and calculation-grade earned value management.
+- Materials/supply chain, maintenance/reliability, and digital operations/data.
 - Technical management: requirements/verification, configuration, interfaces, technical risk, technical data, and formal decision analysis.
 - AI-native engineering: skills, context engineering, MCP portals, agent-ready repositories, agentic review/security, parallel orchestration, software factories, and evaluation.
 - Shared tools: problem framing, evidence standards, experiment design, and reference-versus-reality questioning.

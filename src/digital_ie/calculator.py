@@ -12,7 +12,7 @@ import json
 from math import fsum, isfinite, sqrt
 from typing import Any, Callable, Mapping
 
-from . import statistics
+from . import evm, statistics
 
 
 METHOD_VERSION = "1.0.0"
@@ -27,6 +27,18 @@ COMMON_UNESTABLISHED = (
     "distributional assumptions beyond mechanical input checks",
     "causality and practical significance",
 )
+EVM_UNESTABLISHED = (
+    "baseline scope, version, and time-phasing integrity",
+    "objective validity of the earned-value technique and claimed accomplishment",
+    "actual-cost completeness and alignment with performed work",
+    "consistency of status date, accounting period, WBS, and control-account scope",
+    "forecast assumptions and remaining-resource realism",
+    "calendar impact to the IMS critical, driving, and near-critical paths",
+)
+EVM_AUTHORITY_BOUNDARY = (
+    "Calculation only; no EVMS compliance determination, baseline change, official EAC, "
+    "contract commitment, corrective action, or program approval is made."
+)
 
 
 @dataclass(frozen=True)
@@ -38,6 +50,8 @@ class MethodContract:
     formulas: tuple[str, ...]
     input_schema: dict[str, Any]
     compute: Callable[[Mapping[str, Any]], tuple[dict[str, Any], dict[str, Any]]]
+    assumptions_not_established: tuple[str, ...] = COMMON_UNESTABLISHED
+    authority_boundary: str = AUTHORITY_BOUNDARY
 
     def public_description(self) -> dict[str, Any]:
         return {
@@ -48,7 +62,8 @@ class MethodContract:
             "description": self.description,
             "formulas": list(self.formulas),
             "input_schema": self.input_schema,
-            "authority_boundary": AUTHORITY_BOUNDARY,
+            "assumptions_not_established": list(self.assumptions_not_established),
+            "authority_boundary": self.authority_boundary,
         }
 
 
@@ -240,6 +255,80 @@ def _regression(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]
     return values, reported
 
 
+def _evm_snapshot(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    result = asdict(evm.performance_snapshot(
+        args["pv"], args["ev"], args["ac"], args["bac"], args.get("management_etc")
+    ))
+    undefined = sorted(key for key, value in result.items() if value is None)
+    return {"undefined_metrics": undefined}, result
+
+
+def _evm_forecast(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    values = asdict(evm.forecast_at_completion(
+        args["pv"],
+        args["ev"],
+        args["ac"],
+        args["bac"],
+        args.get("management_etc"),
+        args.get("recent_period_ev"),
+        args.get("recent_period_ac"),
+    ))
+    intermediate_names = ("cumulative_cpi", "cumulative_spi", "recent_cpi", "work_remaining")
+    intermediate = {name: values.pop(name) for name in intermediate_names}
+    intermediate["undefined_metrics"] = sorted(
+        key for key, value in {**intermediate, **values}.items() if value is None
+    )
+    return intermediate, values
+
+
+def _evm_reconcile(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    values = evm.reconcile_periods(
+        args["period_pv"],
+        args["period_ev"],
+        args["period_ac"],
+        args["reported_cumulative_pv"],
+        args["reported_cumulative_ev"],
+        args["reported_cumulative_ac"],
+        args.get("tolerance", 0.01),
+    )
+    return {"period_count": len(args["period_pv"])}, values
+
+
+def _evm_schedule_execution(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    result = evm.schedule_execution(
+        args["baseline_tasks_completed"],
+        args["baseline_tasks_due"],
+        args["period_tasks_completed_on_time"],
+        args["period_tasks_due"],
+    )
+    return {}, result
+
+
+def _evm_labor_variance(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    result = evm.labor_cost_variance(
+        args["budget_rate"], args["actual_rate"], args["earned_hours"], args["actual_hours"]
+    )
+    return {}, {
+        "rate_variance": result.rate_or_price_variance,
+        "volume_variance": result.volume_or_usage_variance,
+        "labor_cost_variance": result.total_cost_variance,
+    }
+
+
+def _evm_material_variance(args: Mapping[str, Any]) -> tuple[dict[str, Any], dict[str, Any]]:
+    result = evm.material_cost_variance(
+        args["budget_unit_price"],
+        args["actual_unit_price"],
+        args["earned_quantity"],
+        args["actual_quantity"],
+    )
+    return {}, {
+        "price_variance": result.rate_or_price_variance,
+        "usage_variance": result.volume_or_usage_variance,
+        "material_cost_variance": result.total_cost_variance,
+    }
+
+
 def _number_schema() -> dict[str, Any]:
     return {"type": "number"}
 
@@ -256,6 +345,22 @@ def _proportion_schema() -> dict[str, Any]:
     return {"type": "number", "minimum": 0, "maximum": 1}
 
 
+def _nonnegative_schema() -> dict[str, Any]:
+    return {"type": "number", "minimum": 0}
+
+
+def _nonnegative_array_schema(min_items: int = 1) -> dict[str, Any]:
+    return {
+        "type": "array",
+        "items": _nonnegative_schema(),
+        "minItems": min_items,
+    }
+
+
+def _string_schema() -> dict[str, Any]:
+    return {"type": "string", "minLength": 1}
+
+
 def _contract(
     method_id: str,
     title: str,
@@ -265,6 +370,8 @@ def _contract(
     required: list[str],
     compute: Callable[[Mapping[str, Any]], tuple[dict[str, Any], dict[str, Any]]],
     schema_extensions: Mapping[str, Any] | None = None,
+    assumptions_not_established: tuple[str, ...] = COMMON_UNESTABLISHED,
+    authority_boundary: str = AUTHORITY_BOUNDARY,
 ) -> MethodContract:
     input_schema = _object_schema(properties, required)
     if schema_extensions:
@@ -277,6 +384,8 @@ def _contract(
         formulas,
         input_schema,
         compute,
+        assumptions_not_established,
+        authority_boundary,
     )
 
 
@@ -364,6 +473,151 @@ METHODS = (
     _contract("regression.simple_linear", "Simple linear regression", "Least-squares line and diagnostics.",
               ("b1=Sxy/Sxx", "b0=y_bar-b1*x_bar", "R^2=1-SSE/SST"),
               {"x": _array_schema(3), "y": _array_schema(3)}, ["x", "y"], _regression),
+    _contract(
+        "program.evm_snapshot",
+        "EVM performance snapshot",
+        "Cumulative variances, efficiencies, status percentages, and management VAC.",
+        (
+            "CV=EV-AC", "SV=EV-PV", "CV%=100*CV/EV", "SV%=100*SV/PV",
+            "CPI=EV/AC", "SPI=EV/PV", "%complete=100*EV/BAC",
+            "%scheduled=100*PV/BAC", "%spent=100*AC/BAC", "WR=BAC-EV",
+            "EAC_management=AC+ETC", "VAC=BAC-EAC",
+        ),
+        {
+            "status_date": _string_schema(), "baseline_id": _string_schema(),
+            "scope_id": _string_schema(), "value_units": _string_schema(),
+            "pv": _nonnegative_schema(), "ev": _nonnegative_schema(),
+            "ac": _nonnegative_schema(), "bac": _nonnegative_schema(),
+            "management_etc": _nonnegative_schema(),
+        },
+        ["status_date", "baseline_id", "scope_id", "value_units", "pv", "ev", "ac", "bac"],
+        _evm_snapshot,
+        assumptions_not_established=EVM_UNESTABLISHED,
+        authority_boundary=EVM_AUTHORITY_BOUNDARY,
+    ),
+    _contract(
+        "program.evm_forecast",
+        "EVM forecast alternatives",
+        "CPI, composite, recent-CPI, and bottom-up EAC/VAC with TCPI targets.",
+        (
+            "EAC_CPI=AC+(BAC-EV)/CPI", "EAC_composite=AC+(BAC-EV)/(CPI*SPI)",
+            "CPI_recent=sum(period EV)/sum(period AC)",
+            "EAC_recent=AC+(BAC-EV)/CPI_recent", "EAC_management=AC+ETC",
+            "VAC=BAC-EAC", "TCPI_BAC=(BAC-EV)/(BAC-AC)",
+            "TCPI_EAC=(BAC-EV)/(EAC-AC)",
+        ),
+        {
+            "status_date": _string_schema(), "baseline_id": _string_schema(),
+            "scope_id": _string_schema(), "value_units": _string_schema(),
+            "pv": _nonnegative_schema(), "ev": _nonnegative_schema(),
+            "ac": _nonnegative_schema(), "bac": _nonnegative_schema(),
+            "management_etc": _nonnegative_schema(),
+            "recent_period_ev": _nonnegative_array_schema(),
+            "recent_period_ac": _nonnegative_array_schema(),
+        },
+        ["status_date", "baseline_id", "scope_id", "value_units", "pv", "ev", "ac", "bac"],
+        _evm_forecast,
+        assumptions_not_established=EVM_UNESTABLISHED,
+        authority_boundary=EVM_AUTHORITY_BOUNDARY,
+    ),
+    _contract(
+        "program.evm_period_reconciliation",
+        "EVM period reconciliation",
+        "Reconcile period PV, EV, and AC sums to reported cumulative values.",
+        ("cumulative metric=sum(period metrics)", "delta=reported-calculated"),
+        {
+            "status_date": _string_schema(), "baseline_id": _string_schema(),
+            "scope_id": _string_schema(), "value_units": _string_schema(),
+            "period_pv": _nonnegative_array_schema(),
+            "period_ev": _nonnegative_array_schema(),
+            "period_ac": _nonnegative_array_schema(),
+            "reported_cumulative_pv": _nonnegative_schema(),
+            "reported_cumulative_ev": _nonnegative_schema(),
+            "reported_cumulative_ac": _nonnegative_schema(),
+            "tolerance": _nonnegative_schema(),
+        },
+        [
+            "status_date", "baseline_id", "scope_id", "value_units", "period_pv",
+            "period_ev", "period_ac", "reported_cumulative_pv", "reported_cumulative_ev",
+            "reported_cumulative_ac",
+        ],
+        _evm_reconcile,
+        assumptions_not_established=EVM_UNESTABLISHED,
+        authority_boundary=EVM_AUTHORITY_BOUNDARY,
+    ),
+    _contract(
+        "program.evm_schedule_execution",
+        "EVM schedule execution indicators",
+        "Baseline Execution Index and current-period task hit rate.",
+        (
+            "BEI=baseline tasks completed/baseline tasks due",
+            "hit/miss %=100*on-time period completions/period tasks due",
+        ),
+        {
+            "status_date": _string_schema(), "baseline_id": _string_schema(),
+            "scope_id": _string_schema(),
+            "baseline_tasks_completed": _integer_schema(),
+            "baseline_tasks_due": _positive_integer_schema(),
+            "period_tasks_completed_on_time": _integer_schema(),
+            "period_tasks_due": _positive_integer_schema(),
+        },
+        [
+            "status_date", "baseline_id", "scope_id", "baseline_tasks_completed",
+            "baseline_tasks_due", "period_tasks_completed_on_time", "period_tasks_due",
+        ],
+        _evm_schedule_execution,
+        assumptions_not_established=EVM_UNESTABLISHED,
+        authority_boundary=EVM_AUTHORITY_BOUNDARY,
+    ),
+    _contract(
+        "program.evm_labor_variance",
+        "EVM labor cost variance",
+        "Decompose labor cost variance into rate and volume components.",
+        (
+            "rate variance=(budget rate-actual rate)*actual hours",
+            "volume variance=(earned hours-actual hours)*budget rate",
+            "labor cost variance=rate variance+volume variance",
+        ),
+        {
+            "status_date": _string_schema(), "baseline_id": _string_schema(),
+            "scope_id": _string_schema(), "currency": _string_schema(),
+            "budget_rate": _nonnegative_schema(), "actual_rate": _nonnegative_schema(),
+            "earned_hours": _nonnegative_schema(), "actual_hours": _nonnegative_schema(),
+        },
+        [
+            "status_date", "baseline_id", "scope_id", "currency", "budget_rate",
+            "actual_rate", "earned_hours", "actual_hours",
+        ],
+        _evm_labor_variance,
+        assumptions_not_established=EVM_UNESTABLISHED,
+        authority_boundary=EVM_AUTHORITY_BOUNDARY,
+    ),
+    _contract(
+        "program.evm_material_variance",
+        "EVM material cost variance",
+        "Decompose material cost variance into price and usage components.",
+        (
+            "price variance=(budget unit price-actual unit price)*actual quantity",
+            "usage variance=(earned quantity-actual quantity)*budget unit price",
+            "material cost variance=price variance+usage variance",
+        ),
+        {
+            "status_date": _string_schema(), "baseline_id": _string_schema(),
+            "scope_id": _string_schema(), "currency": _string_schema(),
+            "quantity_units": _string_schema(),
+            "budget_unit_price": _nonnegative_schema(),
+            "actual_unit_price": _nonnegative_schema(),
+            "earned_quantity": _nonnegative_schema(),
+            "actual_quantity": _nonnegative_schema(),
+        },
+        [
+            "status_date", "baseline_id", "scope_id", "currency", "quantity_units",
+            "budget_unit_price", "actual_unit_price", "earned_quantity", "actual_quantity",
+        ],
+        _evm_material_variance,
+        assumptions_not_established=EVM_UNESTABLISHED,
+        authority_boundary=EVM_AUTHORITY_BOUNDARY,
+    ),
 )
 
 METHODS_BY_ID = {method.method_id: method for method in METHODS}
@@ -433,6 +687,9 @@ def _validate_schema(value: Any, schema: Mapping[str, Any]) -> None:
                 raise ValueError(f"{path} is below its minimum")
             if "maximum" in current_schema and current > current_schema["maximum"]:
                 raise ValueError(f"{path} is above its maximum")
+        if expected_type == "string":
+            if len(current) < current_schema.get("minLength", 0):
+                raise ValueError(f"{path} is shorter than its minimum length")
         if expected_type == "array":
             if len(current) < current_schema.get("minItems", 0):
                 raise ValueError(f"{path} has too few items")
@@ -493,6 +750,6 @@ def calculate(method_id: str, arguments: Mapping[str, Any]) -> dict[str, Any]:
             "calculation completed without a domain error",
         ],
         "context_gaps": context_gaps,
-        "assumptions_not_established": list(COMMON_UNESTABLISHED),
-        "authority_boundary": AUTHORITY_BOUNDARY,
+        "assumptions_not_established": list(contract.assumptions_not_established),
+        "authority_boundary": contract.authority_boundary,
     }

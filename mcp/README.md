@@ -4,7 +4,7 @@ The MCP exposes domain verbs, never arbitrary SQL or unrestricted plant writes.
 
 ## Implemented calculation portal
 
-The [calculator portal](calculator-portal.yaml) is implemented as a dependency-free local stdio server. Its method registry exposes typed descriptive, probability, inference, comparison, sequence, and regression calculations backed by the readable Python equations—not by model-generated expressions. It supports current stateless MCP discovery and legacy initialization for harness compatibility.
+The [calculator portal](calculator-portal.yaml) is implemented as a dependency-free local stdio server. Its method registry exposes typed statistical and program EVM calculations backed by readable Python equations—not by model-generated expressions. The EVM family covers performance snapshots, forecast alternatives, period reconciliation, schedule execution indicators, and labor/material variance decomposition. It supports current stateless MCP discovery and legacy initialization for harness compatibility.
 
 From the repository root:
 

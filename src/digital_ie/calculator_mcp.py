@@ -17,7 +17,7 @@ def _server_meta() -> dict[str, Any]:
     return {
         "io.modelcontextprotocol/serverInfo": {
             "name": "digitalie-calculator",
-            "version": "0.1.0",
+            "version": "0.2.0",
         }
     }
 
@@ -82,7 +82,7 @@ def _initialize(request_id: Any, params: Mapping[str, Any]) -> dict[str, Any]:
         {
             "protocolVersion": protocol_version,
             "capabilities": {"tools": {"listChanged": False}},
-            "serverInfo": {"name": "digitalie-calculator", "version": "0.1.0"},
+            "serverInfo": {"name": "digitalie-calculator", "version": "0.2.0"},
             "instructions": (
                 "Use these tools for arithmetic only. The caller remains responsible for method "
                 "selection, data fitness, assumptions, interpretation, and human authority."

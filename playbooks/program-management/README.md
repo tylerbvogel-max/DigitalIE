@@ -10,3 +10,4 @@ Program Management coordinates scope, work, decisions, resources, risks, and sta
 | Prevent decisions from disappearing | [Governance and decisions](04-governance-and-decisions.md) |
 | Control scope/baseline changes | [Change control](05-change-control.md) |
 | Recover or communicate a threatened commitment | [Recovery and stakeholder communication](06-recovery-and-stakeholder-communication.md) |
+| Integrate scope, accomplishment, schedule, and cost performance | [Earned value management](07-earned-value-management.md) |
